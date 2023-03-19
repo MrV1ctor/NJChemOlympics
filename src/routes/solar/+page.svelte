@@ -4,6 +4,7 @@ import * as THREE from 'three';
 
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
 import { OBJLoader } from 'three/examples/jsm/loaders/OBJLoader'
+import { Lensflare, LensflareElement } from 'three/examples/jsm/objects/Lensflare.js';
 
 import { onMount } from 'svelte';
 onMount(() => {
@@ -104,13 +105,33 @@ onMount(() => {
     }
     
     //sun
-    const sunGeometry = new THREE.SphereGeometry(5, 32, 32);
+    let sun_radius = 25;
+    const sunGeometry = new THREE.SphereGeometry(sun_radius, 32, 32);
     const sunMaterial = new THREE.MeshBasicMaterial({ color: 0xffff00 });
     const sun = new THREE.Mesh(sunGeometry, sunMaterial);
-    sun.position.set(0, 0, -50);
+    sun.position.set(0, 0, -500);
     scene.add(sun);
     
+    const flare_light = new THREE.PointLight( 0xffffff, 0.5, 500 );
 
+    const textureLoader = new THREE.TextureLoader();
+
+    const textureFlare0 = textureLoader.load( "src/routes/solar/lensflare0.png" );
+    const textureFlare1 = textureLoader.load( "src/routes/solar/lensflare1.png" );
+    const textureFlare2 = textureLoader.load( "src/routes/solar/lensflare2.png" );
+
+    const lensflare = new Lensflare();
+
+    lensflare.addElement( new LensflareElement( textureFlare0, 512, 0 ) );
+    lensflare.addElement( new LensflareElement( textureFlare1, 512, 0 ) );
+    lensflare.addElement( new LensflareElement( textureFlare2, 60, 0.6 ) );
+
+    flare_light.add( lensflare );
+
+    scene.add( flare_light );
+
+    const lightHelper = new THREE.PointLightHelper(flare_light);
+    scene.add(lightHelper);
     
     // ON SCROLL
     function moveCamera() {
@@ -125,10 +146,16 @@ onMount(() => {
         let x = -(3*dist)+(2*dist)*(1+t/(window.innerHeight-document.querySelector("main").scrollHeight));
         targetObject.position.set(-x, -10, 0);
 
-        let sun_multiplier = 10;
-        sun.position.set(x*sun_multiplier, 25+(-Math.abs(x)/dist)*sun_multiplier, -50);
+        let sun_x_dist = 50;
+        let sun_y_dist = 100;
+        let sun_min_height = 50;
+        sun.position.set(x*sun_x_dist, sun_min_height+(-Math.abs(x)/dist)*sun_y_dist, sun.position.z);
 
-        console.log(x/dist)
+        flare_light.position.set(x*sun_x_dist, sun_min_height+(sun_radius*2)+(-Math.abs(x)/dist)*sun_y_dist, sun.position.z);
+
+        // console.log(x/dist)
+
+        // light.position.set(sun.position);
 
         // console.log("X: "+x);
         // console.log("T: "+t);
