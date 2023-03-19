@@ -126,7 +126,7 @@ onMount(() => {
 
     
     //sun
-    let sun_radius = 25;
+    let sun_radius = 0.01;
     const sunGeometry = new THREE.SphereGeometry(sun_radius, 32, 32);
     const sunMaterial = new THREE.MeshBasicMaterial({ color: 0xffff00 });
     const sun = new THREE.Mesh(sunGeometry, sunMaterial);
@@ -137,18 +137,28 @@ onMount(() => {
 
     const textureLoader = new THREE.TextureLoader();
 
-    const textureFlare0 = textureLoader.load( "/img/solar/lensflare0.png" );
-    const textureFlare1 = textureLoader.load( "/img/solar/lensflare1.png" );
-    const textureFlare2 = textureLoader.load( "/img/solar/lensflare2.png" );
-    const textureFlare3 = textureLoader.load( "/img/solar/lensflare3.png" );
+    const textureFlare0 = textureLoader.load( "/img/solar/mainFlare.png" );
+    const textureFlare1 = textureLoader.load( "/img/solar/orangeFlareM.png" );
+    const textureFlare2 = textureLoader.load( "/img/solar/orangeFlareS.png" );
+    const textureFlare3 = textureLoader.load( "/img/solar/blueFlareS.png" );
+    const textureFlare4 = textureLoader.load( "/img/solar/blueFlareS.png" );
+    const textureFlare5 = textureLoader.load( "/img/solar/greenFlare.png" );
+    const textureFlare6 = textureLoader.load( "/img/solar/miscFlare.png" );
 
     const lensflare = new Lensflare();
 
-    lensflare.addElement( new LensflareElement( textureFlare0, 512, 0 , new THREE.Color(0xffbc2b)) );
-    lensflare.addElement( new LensflareElement( textureFlare1, 450, 0.2 , new THREE.Color(0xffbc2b)) );
-    lensflare.addElement( new LensflareElement( textureFlare3, 256, 0.4 , new THREE.Color(0xffbc2b)) );
+    lensflare.addElement( new LensflareElement( textureFlare0, 900, 0 , new THREE.Color(0xffbc2b)) );
+    lensflare.addElement( new LensflareElement( textureFlare1, 256, 0.08 , new THREE.Color(0xffbc2b)) );
+
+    lensflare.addElement( new LensflareElement( textureFlare3, 128, 0.12 , new THREE.Color(0xffbc2b)) );
+    lensflare.addElement( new LensflareElement( textureFlare4, 256, 0.18 , new THREE.Color(0xffbc2b)) );
+    lensflare.addElement( new LensflareElement( textureFlare3, 128, 0.3 , new THREE.Color(0xffbc2b)) );
+
+    lensflare.addElement( new LensflareElement( textureFlare1, 128, 0.4 , new THREE.Color(0xffbc2b)) );
     lensflare.addElement( new LensflareElement( textureFlare2, 128, 0.6 , new THREE.Color(0xffbc2b)) );
-    lensflare.addElement( new LensflareElement( textureFlare2, 60, 0.8 , new THREE.Color(0xffbc2b)) );
+    lensflare.addElement( new LensflareElement( textureFlare2, 60, 0.73 , new THREE.Color(0xffbc2b)) );
+    lensflare.addElement( new LensflareElement( textureFlare5, 256, 0.85 , new THREE.Color(0xffbc2b)) );
+    lensflare.addElement( new LensflareElement( textureFlare6, 300, 1 , new THREE.Color(0xffbc2b)) );
 
     flare_light.add( lensflare );
 
