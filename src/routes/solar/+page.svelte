@@ -19,7 +19,7 @@ onMount(() => {
     let width = window.innerWidth;
     let height = window.innerHeight;
 
-    const camera = new THREE.PerspectiveCamera( 75, width/height, 0.1, 1000 );
+    const camera = new THREE.PerspectiveCamera( 75, width/height, 0.1, 10000 );
     
     const renderer = new THREE.WebGLRenderer({
       canvas: document.querySelector('#bg'),
@@ -28,6 +28,9 @@ onMount(() => {
     renderer.setPixelRatio( window.devicePixelRatio );
 
     renderer.setSize( width, height );
+
+    scene.background = new THREE.Color(0x0094d4);
+
     
     // renderer.setSize( window.innerWidth, window.innerHeight );
     
@@ -78,6 +81,8 @@ onMount(() => {
     
     // Array(200).fill().forEach(addStar);
     
+    camera.position.y += 5;
+    camera.position.z += 5;
     
     //create a grid of cubes to the left of the camera, and a grid of cubes to the right of the camera
     for (let i = 0; i < 25; i++) {
@@ -103,6 +108,22 @@ onMount(() => {
       cube.position.set(x, y, z);
       scene.add(cube);
     }
+
+    //add a large platform underneath all the cubes
+    const geometry = new THREE.BoxGeometry(1000, 1, 1000);
+    const material = new THREE.MeshBasicMaterial({ color: 0xffbc2b });
+    const platform = new THREE.Mesh(geometry, material);
+    platform.position.set(0, -100, 0);
+    scene.add(platform);
+
+    //add a wall at the end of the platform
+    const geometry2 = new THREE.BoxGeometry(2000, 210, 1);
+    const material2 = new THREE.MeshBasicMaterial({ color: 0xffbc2b });
+    const wall = new THREE.Mesh(geometry2, material2);
+    wall.position.set(0, -75, -450);
+    scene.add(wall);
+
+
     
     //sun
     let sun_radius = 25;
@@ -119,39 +140,42 @@ onMount(() => {
     const textureFlare0 = textureLoader.load( "src/routes/solar/lensflare0.png" );
     const textureFlare1 = textureLoader.load( "src/routes/solar/lensflare1.png" );
     const textureFlare2 = textureLoader.load( "src/routes/solar/lensflare2.png" );
+    const textureFlare3 = textureLoader.load( "src/routes/solar/lensflare3.png" );
 
     const lensflare = new Lensflare();
 
-    lensflare.addElement( new LensflareElement( textureFlare0, 512, 0 ) );
-    lensflare.addElement( new LensflareElement( textureFlare1, 512, 0 ) );
-    lensflare.addElement( new LensflareElement( textureFlare2, 60, 0.6 ) );
+    lensflare.addElement( new LensflareElement( textureFlare0, 512, 0 , new THREE.Color(0xffbc2b)) );
+    lensflare.addElement( new LensflareElement( textureFlare1, 450, 0.2 , new THREE.Color(0xffbc2b)) );
+    lensflare.addElement( new LensflareElement( textureFlare3, 256, 0.4 , new THREE.Color(0xffbc2b)) );
+    lensflare.addElement( new LensflareElement( textureFlare2, 128, 0.6 , new THREE.Color(0xffbc2b)) );
+    lensflare.addElement( new LensflareElement( textureFlare2, 60, 0.8 , new THREE.Color(0xffbc2b)) );
 
     flare_light.add( lensflare );
 
     scene.add( flare_light );
 
-    const lightHelper = new THREE.PointLightHelper(flare_light);
-    scene.add(lightHelper);
+    // const lightHelper = new THREE.PointLightHelper(flare_light);
+    // scene.add(lightHelper);
     
-    // ON SCROLL
+    // ON SCROLL 
     function moveCamera() {
     
         // scroll amount
         const t = document.body.getBoundingClientRect().top;
         
-
+// console.log(t)
 
         //light movement
         let dist = 5;//how far the scrolling for the light goes
         let x = -(3*dist)+(2*dist)*(1+t/(window.innerHeight-document.querySelector("main").scrollHeight));
         targetObject.position.set(-x, -10, 0);
 
-        let sun_x_dist = 50;
+        let sun_x_dist = 150;
         let sun_y_dist = 100;
-        let sun_min_height = 50;
+        let sun_min_height = 100;
         sun.position.set(x*sun_x_dist, sun_min_height+(-Math.abs(x)/dist)*sun_y_dist, sun.position.z);
 
-        flare_light.position.set(x*sun_x_dist, sun_min_height+(sun_radius*2)+(-Math.abs(x)/dist)*sun_y_dist, sun.position.z);
+        flare_light.position.set(x*sun_x_dist, sun_min_height+(-Math.abs(x)/dist)*sun_y_dist, sun.position.z+(sun_radius+10));
 
         // console.log(x/dist)
 
