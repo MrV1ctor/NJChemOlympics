@@ -137,10 +137,10 @@ onMount(() => {
 
     const textureLoader = new THREE.TextureLoader();
 
-    const textureFlare0 = textureLoader.load( "src/routes/solar/lensflare0.png" );
-    const textureFlare1 = textureLoader.load( "src/routes/solar/lensflare1.png" );
-    const textureFlare2 = textureLoader.load( "src/routes/solar/lensflare2.png" );
-    const textureFlare3 = textureLoader.load( "src/routes/solar/lensflare3.png" );
+    const textureFlare0 = textureLoader.load( "/img/solar/lensflare0.png" );
+    const textureFlare1 = textureLoader.load( "/img/solar/lensflare1.png" );
+    const textureFlare2 = textureLoader.load( "/img/solar/lensflare2.png" );
+    const textureFlare3 = textureLoader.load( "/img/solar/lensflare3.png" );
 
     const lensflare = new Lensflare();
 
