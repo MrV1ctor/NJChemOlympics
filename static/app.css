@@ -1,3 +1,25 @@
+:root {
+    font-size: 10px;
+
+    --main-1: #1a6706;
+    --main-2: #31ac13;
+    --main-3: #b5e396;
+    --main-4: #fffa00;
+    --hydro-1: #2F8F9D;
+    --hydro-2: #3BACB6;
+    --hydro-3: #82DBD8;
+    --hydro-4: #B3E8E5;
+    --solar-1: #ffa505;
+    --solar-2: #ffc905;
+    --solar-3: #ffe505;
+    --solar-4: #fffb05;
+    --geo-1: #8E3200;
+    --geo-2: #A64B2A;
+    --geo-3: #D7A86E;
+    --geo-4: #FFEBC1;
+}
+
 body {
     margin: 0;
+    font-size: 1.6rem;
 }
