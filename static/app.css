@@ -1,5 +1,6 @@
 :root {
     font-size: 10px;
+    font-family: Verdana, Arial, Geneva, Tahoma, sans-serif;
 
     --main-1: #1a6706;
     --main-2: #31ac13;
@@ -22,4 +23,8 @@
 body {
     margin: 0;
     font-size: 1.6rem;
+}
+
+a {
+    text-decoration: none;
 }

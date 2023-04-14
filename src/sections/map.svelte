@@ -471,7 +471,9 @@
  -->
     <h3>Heatmap data</h3>
     <form>
-        <input type="radio" id="netGen" name="heatmap" value="Net Energy Generation (MWh)" checked=true>
+        
+
+        <!-- <input type="radio" id="netGen" name="heatmap" value="Net Energy Generation (MWh)" checked=true>
         <label for="netGen">Net Energy Generation (MWh)</label><br>
         <input type="radio" id="numSol" name="heatmap" value="# of Solar Power Plants">
         <label for="numSol"># of Solar Power Plants</label><br>
@@ -479,13 +481,13 @@
         <label for="numHydro"># of Hydro Power Plants</label>
         <br>
         <input type="radio" id="numGeo" name="heatmap" value="# of Geothermal Power Plants">
-        <label for="numGeo"># of Geothermal Power Plants</label>
+        <label for="numGeo"># of Geothermal Power Plants</label> -->
     </form>
 
 
     <!-- svg used from https://www.eia.gov/electricity/state/ -->
     <div class="map-div">
-        <svg width="100vw" height="100vh"
+        <svg width="100%" height="auto" viewBox="0 0 930 600"
             ><g
                 ><path
                     d="m244.66,512.25c-2.48,3.8 2.23,4.04 4.74,5.38 3.06,0.16 3.51,-4.28 2.66,-6.56 -2.72,-0.77 -5.01,-0.19 -7.41,1.19z m-9.31,3.97c-4.02,5.11 3.64,0.48 0.63,-0.09l-0.5,0.07 -0.14,0.02z m39.69,7.97c-0.62,2.09 1.91,6.73 4.39,6.2 2.41,-1.46 3.73,1.73 6.48,0.56 1.23,-1.48 -3.77,-3.2 -3.7,-6.08 -0.95,-3.8 -3.28,-3.2 -5.96,-1.28 -0.41,0.2 -0.81,0.4 -1.22,0.6z m19.94,10.03c3.58,0.95 7.91,2.99 11.25,0.47 -1.05,-1.63 -5.06,-0.59 -7.1,-0.86 -1.44,0.01 -3.54,-1.63 -4.15,0.39z m12.13,4.38c2.33,2.45 3.64,6.83 7.24,7.4 2.36,-0.69 6.84,-0.66 7.32,-3.43 -2.09,-2.51 -5.77,-3.35 -8.88,-4.29 -2.53,-1.2 -4.11,-3.25 -5.68,0.33z m-7.06,1c-0.29,3.69 5.55,3.98 3.67,0.55 -0.27,-1.25 -3.83,-1.74 -3.67,-0.55z m23.66,14.69c0.27,2.45 3.18,3.93 0.47,6.15 -0.65,2.42 -5.54,2.87 -2.52,5.53 2.36,1.46 2.01,4.85 2.92,7.14 -0.72,2.69 -1.43,6.78 1.72,8.06 2.8,2.95 4.5,-1.93 6.19,-3.68 1.27,-1.69 3.85,-4.1 5.94,-2.59 3.04,-0.81 6.3,-2.42 7.78,-5.22 -2.79,-1.31 -4.88,-3.19 -5.57,-6.29 -2.4,-5.33 -8.95,-6.26 -13.58,-8.98 -1.29,-0.52 -2.26,-1.62 -3.34,-0.11z"
@@ -805,9 +807,14 @@
 
 <style>
 
+    .map-div {
+        width: 100%;
+        height: auto;
+    }
+
     svg {
-        margin-left: 20vw;
-        scale: 1;
+        /* margin-left: 20vw; */
+        scale: 0.7;
     }
 
     path {
