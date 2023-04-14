@@ -341,7 +341,7 @@
         let svg = document.querySelector('svg');
         let path = svg.querySelectorAll('path');
         paths = Array.from(path);
-        console.log(paths)
+        // console.log(paths)
     }
     
 
@@ -359,7 +359,7 @@
         setInterval(() => {
             let path = document.querySelector("svg path:hover");
             if (path != null) {
-                console.log("hovered on "+(info[path.id].name)+" with id "+path.id+" and netGen of "+info[path.id].netGen+" and numSol of "+info[path.id].numSol+" and numHydro of "+info[path.id].numHydro+" and numGeo of "+info[path.id].numGeo);
+                // console.log("hovered on "+(info[path.id].name)+" with id "+path.id+" and netGen of "+info[path.id].netGen+" and numSol of "+info[path.id].numSol+" and numHydro of "+info[path.id].numHydro+" and numGeo of "+info[path.id].numGeo);
                 toolTip.innerHTML = "<span style=\"text-transform: uppercase\">"+(info[path.id].name)+"</span><br> Net Energy Generation (MWh): "+info[path.id].netGen.toLocaleString()+"<br># of Solar Power Plants: "+info[path.id].numSol.toLocaleString()+"<br># of Hydro Power Plants: "+info[path.id].numHydro.toLocaleString()+"<br># of Geothermal Power Plants: "+info[path.id].numGeo.toLocaleString();
                 cursorLocked = false;
             }
@@ -419,22 +419,22 @@
                 case 0:
                     max = maxNetGen;
                     val = stateInfo.netGen;
-                    console.log("heatmap: netGen");
+                    // console.log("heatmap: netGen");
                     break;
                 case 1:
                     max = maxNumSol;
                     val = stateInfo.numSol;
-                    console.log("heatmap: numSol");
+                    // console.log("heatmap: numSol");
                     break;
                 case 2:
                     max = maxNumHydro;
                     val = stateInfo.numHydro;
-                    console.log("heatmap: numHydro");
+                    // console.log("heatmap: numHydro");
                     break;
                 case 3:
                     max = maxNumGeo;
                     val = stateInfo.numGeo;
-                    console.log("heatmap: numGeo");
+                    // console.log("heatmap: numGeo");
                     break;
             }
             let percent = val/max;
@@ -853,12 +853,6 @@
 <!-- 
     TODO
 
-    make the tooltip not show on overall svg hover (only on path hover)
-
     make the paths show somehow that they are being hovered (change color)
-
-    make selection of the stat of heatmap
-
-
 
 -->
