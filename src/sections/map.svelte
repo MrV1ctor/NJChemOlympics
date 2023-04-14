@@ -318,6 +318,8 @@
 
     let selectedStat = 0;
 
+    let title = "Net Energy Generation (MWh)"
+
     //find the max values
     for (let i = 0; i < info.length; i++) {
         if (info[i].netGen > maxNetGen) {
@@ -338,10 +340,8 @@
     
     // get the paths from the svg
     function getPaths() {
-        let svg = document.querySelector('svg');
-        let path = svg.querySelectorAll('path');
+        let path = document.querySelectorAll(".map-div svg path");
         paths = Array.from(path);
-        // console.log(paths)
     }
     
 
@@ -357,7 +357,7 @@
         window.addEventListener('mousemove', toolTipXY);
 
         setInterval(() => {
-            let path = document.querySelector("svg path:hover");
+            let path = document.querySelector(".map-div svg path:hover");
             if (path != null) {
                 // console.log("hovered on "+(info[path.id].name)+" with id "+path.id+" and netGen of "+info[path.id].netGen+" and numSol of "+info[path.id].numSol+" and numHydro of "+info[path.id].numHydro+" and numGeo of "+info[path.id].numGeo);
                 toolTip.innerHTML = "<span style=\"text-transform: uppercase\">"+(info[path.id].name)+"</span><br> Net Energy Generation (MWh): "+info[path.id].netGen.toLocaleString()+"<br># of Solar Power Plants: "+info[path.id].numSol.toLocaleString()+"<br># of Hydro Power Plants: "+info[path.id].numHydro.toLocaleString()+"<br># of Geothermal Power Plants: "+info[path.id].numGeo.toLocaleString();
@@ -400,12 +400,12 @@
         //set the fill of the paths based off of its info, and how close it is to the max
     
         //set selectedStat based off of the selected radio input
-        let radioButtons = document.getElementsByName("heatmap");
-        for (let i = 0; i < radioButtons.length; i++) {
-            if (radioButtons[i].checked) {
-                selectedStat = i;
-            }
-        }
+        // let radioButtons = document.getElementsByName("heatmap");
+        // for (let i = 0; i < radioButtons.length; i++) {
+        //     if (radioButtons[i].checked) {
+        //         selectedStat = i;
+        //     }
+        // }
         
 
         for (let i = 0; i < paths.length; i++)
@@ -469,25 +469,53 @@
     Net Energy Generation (MWh): # of Solar Power Plants: # of Hydro Power Plants: # of Geothermal Power Plants: 
 
  -->
-    <h3>Heatmap data</h3>
-    <form>
+    <div class="buttons">
+        <button	class="netEnergy" class:selected="{selectedStat === 0}"
+        on:click="{() => {selectedStat = 0; title = "Net Energy Generation (MWh)"}}">
+            <svg xmlns="http://www.w3.org/2000/svg" height="48" viewBox="0 96 960 960" width="48"><path d="m393 891 279-335H492l36-286-253 366h154l-36 255Zm-73 85 40-280H160l360-520h80l-40 320h240L400 976h-80Zm153-395Z"/></svg>
+        </button>
+        <button	class="solarButton" class:selected="{selectedStat === 1}"
+        on:click="{() => {selectedStat = 1; title = "# of Solar Power Plants"}}">
+            <svg xmlns="http://www.w3.org/2000/svg" height="48" viewBox="0 96 960 960" width="48"><path d="M481 1027 346 896H160V710L26 576l134-134V256h186l135-134 133 134h186v186l134 134-134 134v186H614l-133 131Zm0-191q107.917 0 183.458-76.125Q740 683.75 740 575q0-107.917-75.542-183.458Q588.917 316 481 316q-108.75 0-184.875 75.542Q220 467.083 220 575q0 108.75 76.125 184.875T481 836Zm-.5-60q-83.5 0-142-58.5t-58.5-142q0-83.5 58.5-141.5t142-58q83.5 0 141.5 58t58 141.5q0 83.5-58 142T480.5 776Zm.5 167 107.917-107H740V685l109-109-109-109V316H589L481 207 371 316H220v151L111 576l109 109v151h150l111 107Zm-1-368Z"/></svg>
+        </button>
+        <button	class="hydroButton" class:selected="{selectedStat === 2}"
+        on:click="{() => {selectedStat = 2; title = "# of Hydro Power Plants"}}">
+            <svg xmlns="http://www.w3.org/2000/svg" height="48" viewBox="0 96 960 960" width="48"><path d="M479 848q16 0 24.5-5.5T512 826q0-11-8.5-17t-25.5-6q-42 0-85.5-26.5T337 683q-2-9-9-14.5t-15-5.5q-11 0-17 8.5t-4 17.5q15 84 71 121.5T479 848Zm1 128q-137 0-228.5-94T160 648q0-100 79.5-217.5T480 176q161 137 240.5 254.5T800 648q0 140-91.5 234T480 976Zm0-60q112 0 186-76.5T740 648q0-79-66.5-179.5T480 256Q353 368 286.5 468.5T220 648q0 115 74 191.5T480 916Zm0-340Z"/></svg>
+        </button>
+        <button class="geoButton" class:selected="{selectedStat === 3}"
+        on:click="{() => {selectedStat = 3; title = "# of Geothermal Power Plants"}}">
+        <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+             viewBox="0 0 48 48" style="enable-background:new 0 0 48 48;" xml:space="preserve">
+        <path d="M19.9,11.2L19.9,11.2c4.5,0,9,0,13.5,0c0.3,0,0.4,0.1,0.3,0.4c-0.5,3.2-1,6.4-1.4,9.6c-0.1,0.4-0.1,0.8-0.2,1.1
+            c0,0.2-0.1,0.4-0.3,0.5c-5.1,3.5-10.3,7.1-15.4,10.7c-0.1,0.1-0.3,0.2-0.4,0.2c-0.1,0-0.2,0-0.3,0c-2.1-0.7-4.3-1.4-6.4-2.1
+            c-0.3-0.1-0.4-0.2-0.4-0.6c0-1.1,0-2.2,0-3.3c0-1.1,0-2.2,0-3.3c0-0.2,0.1-0.4,0.2-0.6c2.7-3.2,5.4-6.5,8.1-9.7
+            c0.8-0.9,1.5-1.8,2.3-2.7C19.5,11.3,19.7,11.2,19.9,11.2 M19.9,9.2L19.9,9.2c-0.8,0-1.5,0.3-2,0.9c-0.5,0.7-1.1,1.3-1.6,2l-0.6,0.8
+            L14,14.8c-2.2,2.6-4.3,5.2-6.4,7.8c-0.4,0.5-0.7,1.2-0.7,1.9c0,0.8,0,1.6,0,2.4v0.9v0.9c0,0.8,0,1.6,0,2.3c0,1.2,0.7,2.1,1.8,2.5
+            c2.1,0.7,4.2,1.4,6.4,2.1c0.3,0.1,0.6,0.2,0.9,0.2c0.6,0,1.1-0.2,1.6-0.5c5.1-3.6,10.3-7.1,15.4-10.7c0.7-0.5,1.1-1.1,1.2-2
+            c0-0.3,0.1-0.6,0.1-1l0-0.1l0.6-3.8l0.9-5.9c0-0.3,0.2-1.2-0.5-1.9c-0.7-0.8-1.5-0.8-1.8-0.8h-4.6C25.8,9.2,22.8,9.2,19.9,9.2
+            L19.9,9.2L19.9,9.2z"/>
+        <path d="M32.6,25.2c0.1,0,0.2,0.1,0.2,0.2c0.8,1.2,1.6,2.4,2.4,3.6c0.2,0.4,0.5,0.7,0.8,1.1c0.2,0.2,0.1,0.3-0.1,0.5
+            c-2.2,1.6-4.4,3.1-6.5,4.7c-0.8,0.5-1.5,1.1-2.3,1.6C27,36.9,26.9,37,26.8,37c0,0,0,0,0,0c-0.1,0-0.1,0-0.2-0.1
+            c-2.4-0.8-4.8-1.6-7.1-2.3c-0.1,0-0.2,0-0.2-0.1c0-0.1,0.1-0.2,0.2-0.2c4.1-2.8,8.2-5.6,12.2-8.4c0.3-0.2,0.6-0.4,0.8-0.6
+            C32.5,25.2,32.6,25.2,32.6,25.2 M32.6,23.2c-0.5,0-1,0.2-1.4,0.5c-0.2,0.1-0.3,0.2-0.5,0.3l-0.2,0.2l-1.7,1.2
+            c-3.5,2.4-7,4.8-10.5,7.2c-1.1,0.6-1.2,1.7-1.1,2.4c0.1,0.4,0.4,1.3,1.6,1.6l7.1,2.3l0.2,0.1l0.1,0l0.1,0l0.1,0l0.2,0h0.2
+            c0.8,0,1.3-0.4,1.5-0.5l1.2-0.9l1.1-0.8l1.3-1c1.7-1.2,3.5-2.5,5.2-3.7c0.7-0.5,0.9-1.1,1-1.5c0.1-0.4,0-1.1-0.5-1.8
+            c-0.2-0.2-0.3-0.5-0.5-0.7l-0.2-0.3l-0.5-0.8c-0.6-0.9-1.2-1.9-1.9-2.8S33.1,23.2,32.6,23.2L32.6,23.2L32.6,23.2z"/>
+        <path d="M36.6,11.2c0.2,0,0.4,0,0.5,0.3c1.5,4.8,3,9.6,4.5,14.4c0.1,0.2,0,0.3-0.2,0.4c-1,0.8-2,1.6-3,2.4
+            c-0.1,0.1-0.2,0.1-0.2,0.1c-0.1,0-0.1,0-0.2-0.1c-1.2-1.7-2.5-3.4-3.7-5c-0.1-0.1-0.2-0.2-0.1-0.4c0.2-0.9,0.3-1.9,0.5-2.8
+            c0.5-3,1-5.9,1.5-8.9C36.3,11.4,36.3,11.2,36.6,11.2C36.6,11.2,36.6,11.2,36.6,11.2 M36.6,9.2h-0.1c-0.9,0-2,0.6-2.2,2.1l-1.5,8.9
+            l-0.3,2l-0.2,0.9c-0.1,0.7,0.1,1.3,0.5,1.9l0.6,0.9c1,1.4,2,2.8,3.1,4.2c0.6,0.8,1.4,1,1.8,1c0.5,0,1-0.2,1.5-0.5c1-0.8,2-1.6,3-2.4
+            c0.8-0.6,1.2-1.6,0.8-2.6c-1.5-4.8-3-9.6-4.5-14.4C38.7,9.8,37.8,9.2,36.6,9.2L36.6,9.2L36.6,9.2z"/>
+        </svg>
         
-
-        <!-- <input type="radio" id="netGen" name="heatmap" value="Net Energy Generation (MWh)" checked=true>
-        <label for="netGen">Net Energy Generation (MWh)</label><br>
-        <input type="radio" id="numSol" name="heatmap" value="# of Solar Power Plants">
-        <label for="numSol"># of Solar Power Plants</label><br>
-        <input type="radio" id="numHydro" name="heatmap" value="# of Hydro Power Plants">
-        <label for="numHydro"># of Hydro Power Plants</label>
-        <br>
-        <input type="radio" id="numGeo" name="heatmap" value="# of Geothermal Power Plants">
-        <label for="numGeo"># of Geothermal Power Plants</label> -->
-    </form>
+        </button>
+    </div>
 
 
     <!-- svg used from https://www.eia.gov/electricity/state/ -->
     <div class="map-div">
-        <svg width="100%" height="auto" viewBox="0 0 930 600"
+        <h2 class="map-title">{title}</h2>
+        <svg width="100%" height="100%" viewBox="0 0 930 600"
             ><g
                 ><path
                     d="m244.66,512.25c-2.48,3.8 2.23,4.04 4.74,5.38 3.06,0.16 3.51,-4.28 2.66,-6.56 -2.72,-0.77 -5.01,-0.19 -7.41,1.19z m-9.31,3.97c-4.02,5.11 3.64,0.48 0.63,-0.09l-0.5,0.07 -0.14,0.02z m39.69,7.97c-0.62,2.09 1.91,6.73 4.39,6.2 2.41,-1.46 3.73,1.73 6.48,0.56 1.23,-1.48 -3.77,-3.2 -3.7,-6.08 -0.95,-3.8 -3.28,-3.2 -5.96,-1.28 -0.41,0.2 -0.81,0.4 -1.22,0.6z m19.94,10.03c3.58,0.95 7.91,2.99 11.25,0.47 -1.05,-1.63 -5.06,-0.59 -7.1,-0.86 -1.44,0.01 -3.54,-1.63 -4.15,0.39z m12.13,4.38c2.33,2.45 3.64,6.83 7.24,7.4 2.36,-0.69 6.84,-0.66 7.32,-3.43 -2.09,-2.51 -5.77,-3.35 -8.88,-4.29 -2.53,-1.2 -4.11,-3.25 -5.68,0.33z m-7.06,1c-0.29,3.69 5.55,3.98 3.67,0.55 -0.27,-1.25 -3.83,-1.74 -3.67,-0.55z m23.66,14.69c0.27,2.45 3.18,3.93 0.47,6.15 -0.65,2.42 -5.54,2.87 -2.52,5.53 2.36,1.46 2.01,4.85 2.92,7.14 -0.72,2.69 -1.43,6.78 1.72,8.06 2.8,2.95 4.5,-1.93 6.19,-3.68 1.27,-1.69 3.85,-4.1 5.94,-2.59 3.04,-0.81 6.3,-2.42 7.78,-5.22 -2.79,-1.31 -4.88,-3.19 -5.57,-6.29 -2.4,-5.33 -8.95,-6.26 -13.58,-8.98 -1.29,-0.52 -2.26,-1.62 -3.34,-0.11z"
@@ -807,9 +835,70 @@
 
 <style>
 
+    .buttons {
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+    }
+    
+    .buttons button {
+        min-width: 6rem;
+        min-height: 6rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        border: none;
+        border-radius: 0.5rem;
+
+        margin: 0 0.5rem 0 0.5rem
+    }
+
+    .netEnergy {
+        background-color: var(--main-3);
+    }
+
+    .netEnergy svg path {   
+        fill: var(--main-4);
+    }
+
+    .solarButton {
+        background-color: var(--solar-3);
+    }
+    
+    .solarButton svg path {   
+        fill: var(--solar-1);
+    }
+    
+    .hydroButton {
+        background-color: var(--hydro-3);
+    }
+    
+    .hydroButton svg path {   
+        fill: var(--hydro-1);
+    }
+    
+    .geoButton {
+        background-color: var(--geo-3);
+    }
+
+    .geoButton svg path {   
+        fill: var(--geo-1);
+    }
+
+    .selected {
+        outline: 2px solid black !important;
+    }
+
     .map-div {
         width: 100%;
         height: auto;
+    }
+
+    .map-title {
+        text-align: center;
+        margin-bottom: none;
     }
 
     svg {

@@ -40,14 +40,11 @@
 
 
 <style>
-    Map {
-        margin: 0 auto 0 auto;
-    }
 
     .main-container {
-        background-color: #bbb;
-        margin: 7.5vw auto 7.5vw auto;
-        width: 70vw;
+    background-color: rgb(187, 187, 187, 0.5);
+    margin: 7.5vw auto 7.5vw auto;
+    width: 70vw;
     }
 
     .secondary-container {
@@ -81,15 +78,15 @@
     }
 
     .geo-sect {
-        background-image: url('/rockbanner.png');
+        background-image: url('/img/geo/rockbanner.png');
     }
     
     .hydro-sect {
-        background-image: url('/waterbanner.png');
+        background-image: url('/img/hydro/waterbanner.png');
     }
     
     .solar-sect {
-        background-image: url('/sunbanner.png');
+        background-image: url('/img/solar/sunbanner.png');
     }
 
     .section {
