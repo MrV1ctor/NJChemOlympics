@@ -15,7 +15,6 @@
             </a>
         </nav>
     </div>
-    <div class="header-gradient"></div>
 </main>
 
 <style>
