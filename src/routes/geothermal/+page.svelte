@@ -69,18 +69,18 @@
         
         const controls = new OrbitControls(camera, renderer.domElement);
         
-        function addStar() {
-          const geometry = new THREE.SphereGeometry(0.25, 24, 24);
-          const material = new THREE.MeshStandardMaterial({ color: 0xffffff });
-          const star = new THREE.Mesh(geometry, material);
+        // function addStar() {
+        //   const geometry = new THREE.SphereGeometry(0.25, 24, 24);
+        //   const material = new THREE.MeshStandardMaterial({ color: 0xffffff });
+        //   const star = new THREE.Mesh(geometry, material);
         
-          const [x, y, z] = Array(3).fill().map(() => THREE.MathUtils.randFloatSpread(100));
+        //   const [x, y, z] = Array(3).fill().map(() => THREE.MathUtils.randFloatSpread(100));
         
-          star.position.set(x, y, z);
-          scene.add(star);
-        }
+        //   star.position.set(x, y, z);
+        //   scene.add(star);
+        // }
         
-        Array(200).fill().forEach(addStar);
+        // Array(200).fill().forEach(addStar);
         
         camera.position.y += 5;
         camera.position.z += 5;
@@ -95,22 +95,74 @@
             color: 0x5e3002,
           })
         );
-        wall.position.z = -50;
-        wall.position.y = -80;
+        wall.position.z = -65;
+        wall.position.y = -77;
         scene.add(wall);
 
         //add a box at the top of the wall
         const box = new THREE.Mesh(
-          new THREE.BoxGeometry(10, 10, 10),
+          new THREE.BoxGeometry(50, 50, 10),
           new THREE.MeshStandardMaterial({
             color: 0xffffff,
           })
         );
         box.position.z = -50;
-        box.position.y = -30;
         box.lookAt(camera.position.x, camera.position.y, camera.position.z);
         scene.add(box);
+
+        //make two blue and red pipes going down from the bottom of the box
+        const pipe1 = new THREE.Mesh(
+          new THREE.CylinderGeometry(5, 5, 100, 32),
+          new THREE.MeshStandardMaterial({
+            color: 0x0000ff,
+          })
+        );
+        pipe1.position.z = -50;
+        pipe1.position.y = -50;
+        pipe1.position.x = 10;
+        scene.add(pipe1);
+
+        const pipe2 = new THREE.Mesh(
+          new THREE.CylinderGeometry(5, 5, 100, 32),
+          new THREE.MeshStandardMaterial({
+            color: 0xff0000,
+          })
+        );
+        pipe2.position.z = -50;
+        pipe2.position.y = -50;
+        pipe2.position.x = -50;
+        scene.add(pipe2);
     
+        //add a pipe coming out of the top of pipe 2, towards the box
+        const pipe3 = new THREE.Mesh(
+          new THREE.CylinderGeometry(5, 5, 50, 32),
+          new THREE.MeshStandardMaterial({
+            color: 0xff0000,
+          })
+        );
+        pipe3.position.z = -50;
+        pipe3.position.x = -27.63;
+        pipe3.rotation.z = 1.5708;
+        scene.add(pipe3);
+
+        //make a black triangle infront of the box
+        const triangle = new THREE.Mesh(
+          new THREE.ConeGeometry(25, 25, 3),
+          new THREE.MeshStandardMaterial({
+            color: 0x000000,
+          })
+        );
+        triangle.position.z = -50;
+        triangle.rotation.z = 1.5708;
+        scene.add(triangle);
+
+
+          
+        
+
+
+
+
     
         // const lightHelper = new THREE.PointLightHelper(flare_light);
         // scene.add(lightHelper);
@@ -121,9 +173,12 @@
             // scroll amount
             const t = document.body.getBoundingClientRect().top;
             
-    // console.log(t)
+            console.log(t)
     
     
+            triangle.rotation.z = 0.01 * t;
+
+            
             // console.log(x/dist)
     
             // light.position.set(sun.position);
@@ -180,7 +235,7 @@
     </script>
     
     <canvas id="bg"></canvas>
-<!--     
+    
     <main>
         
         <a href="/" style="color:red;">Home</a>
@@ -248,7 +303,7 @@
         <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Soluta minima, praesentium nobis necessitatibus ducimus eos inventore ab similique quod nesciunt magnam perferendis accusantium cumque odio eum excepturi explicabo quasi maxime. Assumenda corporis atque, quos tenetur a esse aliquid commodi totam repudiandae delectus eveniet et voluptates odit praesentium repellendus deserunt. Esse!</p><br><br><br><br><br>
     
     </main>
-     -->
+    
     
     <style>
     
