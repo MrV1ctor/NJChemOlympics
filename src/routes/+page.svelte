@@ -38,7 +38,8 @@
 <style>
 
     .main-container {
-        margin: 7.5vw auto 15vw auto;
+        background-color: #bbb;
+        margin: 7.5vw auto 7.5vw auto;
         width: 70vw;
     }
 
@@ -47,7 +48,7 @@
         flex-direction: row;
     }
 
-    .secondary-container div {
+    .section, .intro {
         margin: 1rem;
     }
 
@@ -60,8 +61,8 @@
     }
     
     .landing-container .section {
-        width: 100%;
-        height: 100%;
+        width: auto;
+        height: auto;
     }
     
     .intro {
@@ -74,13 +75,20 @@
     
     .hydro-sect {
         background-image: url('/waterbanner.png');
+        background-position: 0 -2rem;
     }
     
     .solar-sect {
         background-image: url('/sunbanner.png');
+        background-position: 0 -4rem;
     }
 
     .section {
-        background-size: contain;
+        background-size: cover;
+    }
+
+    .section p {
+        font-size: 4rem;
+        text-align: center;
     }
 </style>
