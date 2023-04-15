@@ -43,7 +43,7 @@ onMount(() => {
     camera.position.set(0, 6, 8);
 
     scene = new THREE.Scene();
-    scene.background = new THREE.Color(0x1e485e);
+    scene.background = new THREE.Color(0x32a852);
 
     // lights
 
@@ -118,8 +118,6 @@ onMount(() => {
     tall5.position.x = 10;
     scene.add(tall5);
 
-    
-
     //
 
     renderer = new THREE.WebGLRenderer({ antialias: true });
@@ -160,8 +158,8 @@ onMount(() => {
 
     var loader = new THREE.TextureLoader();
 
-    var noiseMap = loader.load("https://i.imgur.com/gPz7iPX.jpg");
-    var dudvMap = loader.load("https://i.imgur.com/hOIsXiZ.png");
+    var noiseMap = loader.load("/img/hydro/noiseTexture.jpeg");
+    var dudvMap = loader.load("/img/hydro/noiseNormal.png");
 
     noiseMap.wrapS = noiseMap.wrapT = THREE.RepeatWrapping;
     noiseMap.minFilter = THREE.NearestFilter;
@@ -318,6 +316,10 @@ onMount(() => {
     water2.position.y = -8;
     scene.add(water2);
 
+    //made camera look downwards at water
+    camera.rotation.x = -0.75;
+    // camera.position.y = -0.25;
+
     //
 
     particleSystem1 = new ParticleSystem();
@@ -381,9 +383,9 @@ onMount(() => {
 
     //
 
-    var controls = new OrbitControls(camera, renderer.domElement);
-    controls.minDistance = 1;
-    controls.maxDistance = 50;
+    // var controls = new OrbitControls(camera, renderer.domElement);
+    // controls.minDistance = 1;
+    // controls.maxDistance = 50;
 
     //
 
