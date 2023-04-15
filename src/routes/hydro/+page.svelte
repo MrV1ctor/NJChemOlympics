@@ -184,16 +184,16 @@ onMount(() => {
         value: null
         },
         topDarkColor: {
-        value: new THREE.Color(0x4e7a71)
+        value: new THREE.Color(0x4e7ac6)
         },
         bottomDarkColor: {
-        value: new THREE.Color(0x0e7562)
+        value: new THREE.Color(0x0e75b7)
         },
         topLightColor: {
-        value: new THREE.Color(0xb0f7e9)
+        value: new THREE.Color(0xb0f7fe)
         },
         bottomLightColor: {
-        value: new THREE.Color(0x14c6a5)
+        value: new THREE.Color(0x14c6fa)
         },
         foamColor: {
         value: new THREE.Color(0xffffff)
@@ -278,7 +278,7 @@ onMount(() => {
         value: new THREE.Color(0xffffff)
         },
         waterColor: {
-        value: new THREE.Color(0x14c6a5)
+        value: new THREE.Color(0x14c6fa)//0x14c6fa
         }
     };
 
@@ -669,7 +669,7 @@ onMount(() => {
 
 <style>
   
-    :global(canvas) {
+    canvas {
       position: fixed;
       top: 0;
       left: 0;
