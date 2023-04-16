@@ -29,12 +29,9 @@ a {
     text-decoration: none;
 }
 
-.image-container {
-    
-}
-
 .image-container .source {
     font-size: 2rem;
+    text-align: center;
 }
 
 .image-container .caption {

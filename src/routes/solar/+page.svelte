@@ -252,8 +252,11 @@ onMount(() => {
     <Header/>
   
     <h1 align="center" style="color:black;">Solar Power</h1>
-
-    <img src="/img/solar/solarTitle.jpg" alt="A Solar Farm">
+    
+    <div class="image-container">
+      <img src="/img/solar/solarTitle.jpg" alt="A Solar Farm">
+      <p class="source">Photo by <a href="https://stories.wf.com/600-acre-solar-farm-to-power-wells-fargo-buildings-in-north-carolina/">Wells Fargo Stories</a></p>
+    </div>
 
     <p>
       <b>
@@ -265,10 +268,7 @@ onMount(() => {
       <br>
 
       &emsp; &emsp; Solar power is any source of power that uses the sun to generate electricity. We are able to capture solar energy because the sun gives off photons due to a complicated process called nuclear fusion, occuring when “protons of hydrogen atoms violently collide in the sun’s core and fuse to create a helium atom.” This process gives off a lot of energy, including the photons we need to generate electricity.
-    
-    </p>
-
-    <p>
+ 
       <b>
         <u>
           How is Solar Power captured?
@@ -279,9 +279,6 @@ onMount(() => {
 
       &emsp; &emsp; There are a few ways solar energy can be harnessed. We can use Photovoltaic Cells in order to capture the energy from the photons, or we could concentrate and convert the energy in the photons into heat energy, and use the heat the drive a turbine.   
     
-    </p>
-
-    <p>
       <br>
 
       <u>Photovoltaic (PV) Cells</u>
@@ -308,7 +305,16 @@ onMount(() => {
       <br>
       <br>
 
-      <img src="/img/solar/photovoltaic-cell.png" alt="A Model of a PV Cell">
+      </p>
+
+      
+      <div class="image-container">
+        <img src="/img/solar/photovoltaic-cell.png" alt="A Model of a PV Cell">
+        <p class="source">Diagram by <a href="https://www.eia.gov/energyexplained/solar/photovoltaics-and-electricity.php">EIA</a></p>
+      </div>
+
+
+      <p>
 
       <br>
       <br>
@@ -328,7 +334,14 @@ onMount(() => {
       <br>
       <br>
 
-      <img src="/img/solar/pnjunction.png" alt="Electrons And Holes Diagram">
+      </p>
+
+      <div class="image-container">
+        <img src="/img/solar/pnjunction.png" alt="Electrons And Holes Diagram">
+        <p class="source">Photo by <a href="https://youtu.be/J4oO7PT_nzQ?t=860">The Engineering Mindset</a></p>
+      </div>
+
+      <p>
 
       <br>
       <br>
@@ -338,7 +351,14 @@ onMount(() => {
       <br>
       <br>
 
-      <img src="/img/solar/conductionband.png" alt="Conduction Band Diagram">
+      </p>
+
+      <div class="image-container">
+        <img src="/img/solar/conductionband.png" alt="Conduction Band Diagram">
+        <p class="source">Diagram by <a href="https://energyeducation.ca/encyclopedia/Conduction_band">Energy Education</a></p>
+      </div>
+
+      <p>
 
       <br>
       <br>
@@ -395,9 +415,6 @@ onMount(() => {
       <br>
       <br>
       
-    </p>
-
-    <p>
       <b>
         <u>
           What are the benefits of Solar Power?
