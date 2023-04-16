@@ -233,56 +233,170 @@
     
     });
     
-    </script>
+</script>
     
-    <canvas id="bg"></canvas>
-    
-    <main>
-        
-      <div class="main-container">
+<canvas id="bg"></canvas>
 
-        <Header/>
+<main>
+    
+  <div class="main-container">
 
-        <h1>Geothermal Power</h1>
-        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Soluta minima, praesentium nobis necessitatibus ducimus eos inventore ab similique quod nesciunt magnam perferendis accusantium cumque odio eum excepturi explicabo quasi maxime. Assumenda corporis atque, quos tenetur a esse aliquid commodi totam repudiandae delectus eveniet et voluptates odit praesentium repellendus deserunt. Esse!</p><br><br><br><br><br>
-        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Soluta minima, praesentium nobis necessitatibus ducimus eos inventore ab similique quod nesciunt magnam perferendis accusantium cumque odio eum excepturi explicabo quasi maxime. Assumenda corporis atque, quos tenetur a esse aliquid commodi totam repudiandae delectus eveniet et voluptates odit praesentium repellendus deserunt. Esse!</p><br><br><br><br><br>
-        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Soluta minima, praesentium nobis necessitatibus ducimus eos inventore ab similique quod nesciunt magnam perferendis accusantium cumque odio eum excepturi explicabo quasi maxime. Assumenda corporis atque, quos tenetur a esse aliquid commodi totam repudiandae delectus eveniet et voluptates odit praesentium repellendus deserunt. Esse!</p><br><br><br><br><br>
-        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Soluta minima, praesentium nobis necessitatibus ducimus eos inventore ab similique quod nesciunt magnam perferendis accusantium cumque odio eum excepturi explicabo quasi maxime. Assumenda corporis atque, quos tenetur a esse aliquid commodi totam repudiandae delectus eveniet et voluptates odit praesentium repellendus deserunt. Esse!</p><br><br><br><br><br>
-        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Soluta minima, praesentium nobis necessitatibus ducimus eos inventore ab similique quod nesciunt magnam perferendis accusantium cumque odio eum excepturi explicabo quasi maxime. Assumenda corporis atque, quos tenetur a esse aliquid commodi totam repudiandae delectus eveniet et voluptates odit praesentium repellendus deserunt. Esse!</p><br><br><br><br><br>
-        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Soluta minima, praesentium nobis necessitatibus ducimus eos inventore ab similique quod nesciunt magnam perferendis accusantium cumque odio eum excepturi explicabo quasi maxime. Assumenda corporis atque, quos tenetur a esse aliquid commodi totam repudiandae delectus eveniet et voluptates odit praesentium repellendus deserunt. Esse!</p><br><br><br><br><br>
-        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Soluta minima, praesentium nobis necessitatibus ducimus eos inventore ab similique quod nesciunt magnam perferendis accusantium cumque odio eum excepturi explicabo quasi maxime. Assumenda corporis atque, quos tenetur a esse aliquid commodi totam repudiandae delectus eveniet et voluptates odit praesentium repellendus deserunt. Esse!</p><br><br><br><br><br>
-        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Soluta minima, praesentium nobis necessitatibus ducimus eos inventore ab similique quod nesciunt magnam perferendis accusantium cumque odio eum excepturi explicabo quasi maxime. Assumenda corporis atque, quos tenetur a esse aliquid commodi totam repudiandae delectus eveniet et voluptates odit praesentium repellendus deserunt. Esse!</p><br><br><br><br><br>
-        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Soluta minima, praesentium nobis necessitatibus ducimus eos inventore ab similique quod nesciunt magnam perferendis accusantium cumque odio eum excepturi explicabo quasi maxime. Assumenda corporis atque, quos tenetur a esse aliquid commodi totam repudiandae delectus eveniet et voluptates odit praesentium repellendus deserunt. Esse!</p><br><br><br><br><br>
+    <Header/>
 
-      </div>    
+    <h1 align="center" style="color:black;">Geothermal Energy</h1>
+
+    <img src="/img/geo/geothermalTitle.jpeg" alt="A Geothermal Power Plant">
+
+    <p>
+      <b>
+        <u>
+          What is Geothermal Energy?
+        </u>
+      </b>
+
+      <br>
+
+      &emsp; &emsp; Geothermal energy is the thermal energy stored at accessible depths in the earth’s crust. Thermal energy in the earth is distributed between the constituent hot rock and the natural fluid in its fractures and pores at temperatures above ambient levels. The ultimate sources of geothermal heat are associated with the upward conduction and convention of energy within the earth’s core and mantle, which remain from the earth’s formation, and with the generation of energy owing to radiogenic decay of naturally occurring elemental isotopes, particularly those of potassium, uranium, and thorium. Geothermal energy is heat energy from the earth—Geo (earth) + thermal (heat).
     
-    </main>
+    </p>
+
+    <p>
+      <b>
+        <u>
+          Where is Geothermal energy found?
+        </u>
+      </b>
+
+      <br>
+
+      &emsp; &emsp; Geothermal resources are reservoirs of hot water found on the Earth's surface or made by humans at varying temperatures and depths below the Earth’s surface. Wells can be drilled into underground reservoirs to tap steam and very hot water to be brought to the surface for various applications such as electricity generation.   
     
-    
-    <style>
-    
-    canvas {
-      position: fixed;
-      top: 0;
-      left: 0;
-    }
-    
-    
-    main {
-      width: 100vw;
-      color: white;
-      z-index: 99;
-      position: absolute;
-      width: 100%;
+    </p>
+
+    <p>
+      <b>
+        <u>
+          How Geothermal Energy is produced?
+        </u>
+      </b>
+
+      <br>
+
+      &emsp; &emsp; Geothermal power plants draw fluids from underground reservoirs to the surface to produce steam. Then the steam drives turbines that generate electricity.
+
+      <br>
+
+      The three main types of geothermal power plant technologies are…
       
-    
-      opacity: 1;
-    }
-    
-    .main-container {
-      background-color: rgb(187, 187, 187, 0.5);
-      margin: 7.5vw auto 7.5vw auto;
-      width: 70vw;
-    }
+      <br>
+      <br>
+      
+      <img src="/img/geo/drySteamPowerPlant.gif" alt="A Model of a Dry Steam Power Plant">
+      
+      <br>
+      <br>
+      
+      <u>•Dry Steam Power Plant:</u>
+      <br>
+      &emsp; -Dry steam power plants use hydrothermal fluids already in the form of steam. The steam is then drawn directly into a turbine which drives a generator that produces electricity. After the steam condenses, it is reinjected back into the reservoir. 
+      
+      
+      <br>
+      <br>
+      
+      <img src="/img/geo/flashSteamPowerPlant.gif" alt="A Model of a Flash Steam Steam Power Plant">
+      
+      <br>
+      <br>
+      
+      <u>•Flash Steam Power Power plant:</u>
+      <br>
+      &emsp; -Most common type of geothermal power plant. Fluids at temperatures greater than 182 degrees/360 degrees are pumped from deep underground. Which then travels under high pressure to a low-pressure tank at the earth’s surface. The change in pressure causes some fluid to transform rapidly into vapor. This vapor then drives a turbine which drives a generator and generates electricity. 
+      
+      
+      <br>
+      <br>
+      
+      <img src="/img/geo/binaryCyclePowerPlant.gif" alt="A Model of a Binary Cycle Power Plant">
+      
+      <br>
+      <br>
+      
+      <u>•Binary-Cycle Power Plant:</u>
+      <br>
+      &emsp; -Binary-Cycle geothermal power plants can use lower temperatures of the geothermal resource, making them an important technology for deploying geothermal electricity. Binary-Cycle geothermal power plants are different from other geothermal power plants because the geothermal reservoir fluids never come into contact with the power plant’s turbine units. Low-temperature geothermal fluids pass through a heat exchanger with a secondary fluid. This binary fluid has a much lower boiling point than water, and the modest heat from the geothermal fluid causes it to flash to vapor, which drives the turbines and generates electricity. 
 
-    </style>
+      <br>
+      <br>
+
+    </p>
+
+    <p>
+      <b>
+        <u>
+          What are the benefits of geothermal energy?
+        </u>
+      </b>
+
+      <br>
+
+      &emsp; &emsp; It is renewable because the heat flowing from Earth’s interior is continually replenished by the decay of naturally occurring radioactive elements and will still remain available for billions of years. Geothermal power plants produce electricity consistently and run 24/7 regardless of weather conditions. U.S. geothermal resources can be harnessed for power production without importing fuel. Geothermal power plants are compact since they use less land power per gigawatt-hour than comparable capacity coal, wind, and solar photovoltaic power stations. Modern closed-loop geothermal power plants emit no greenhouse gases and have life cycle emissions four times lower than solar PV and six to twenty times lower than natural gas. 
+    
+    </p>
+
+    <p>
+      <b>
+        <u>
+          Limitations and shortcomings behind geothermal energy:
+        </u>
+      </b>
+
+      <br>
+
+      &emsp; &emsp; The largest disadvantage of geothermal energy is that it is location specific since it needs to be built in places where energy is accessible which would mean that some areas are not suitable for a geothermal power plant. Although Geothermal energy does not release greenhouse gases, many of these gases sted under the Earth's surface and are released into the atmosphere during digging. Geothermal energy also runs the risk of triggering earthquakes. This is mainly caused by the alterations in the Earth’s structure due to digging. Since most geothermal plants are away from population centers, the implications of these earthquakes are relatively minor. Geothermal energy is an expensive resource, but where the upfront costs are high, the outlay can be recouped as part of a long-term investment. To maintain the sustainability of geothermal energy, geothermal energy fluid needs to be pumped back into the underground reservoirs faster than it’s depleted. 
+
+    
+    </p>
+
+  </div>    
+
+</main>
+    
+    
+<style>
+
+  img {
+    width: 50%;
+    /* center img using margin */
+    margin-left: 17vw;
+  }
+
+  canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+  }
+
+
+  main {
+    width: 100vw;
+    color: black;
+    z-index: 99;
+    position: absolute;
+    width: 100%;
+    
+
+    opacity: 1;
+  }
+
+  .main-container {
+    background-color: rgb(187, 187, 187, 0.75);
+    margin: 7.5vw auto 7.5vw auto;
+    width: 70vw;
+  }
+
+  p {
+    font-size: 1.5vw;
+    margin: 2vw;
+  }
+</style>
