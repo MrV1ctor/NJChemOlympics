@@ -443,7 +443,7 @@
             {
                 maxGradient.innerHTML = max.toLocaleString();
             }
-            let marginLeft = (95-max.toLocaleString().length)+"%";
+            let marginLeft = (95-max.toLocaleString().length/2)+"%";
             if (maxGradient.style.marginLeft != marginLeft)
             {
                 maxGradient.style.marginLeft = marginLeft;
@@ -849,12 +849,12 @@
     }
 
     #min {
-        margin-left: 5%;
+        margin-left: 3vw;
     }
 
     #max {
         margin-left: 90%;
-        margin-top: -3vw;
+        margin-top: -2vw;
     }
 
     .gradient {

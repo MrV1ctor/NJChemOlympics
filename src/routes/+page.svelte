@@ -102,30 +102,30 @@
         // wall.position.y = -77;
         // scene.add(wall);
         //make a wall with the same position and dimensions as commented above but with an image texture
-        const wall = new THREE.Mesh(
+        const wall2 = new THREE.Mesh(
           new THREE.BoxGeometry(400, 200, 0.01),
           new THREE.MeshStandardMaterial({
-            color: 0x5e3002,
+            // color: 0x5e3002,
             map: new THREE.TextureLoader().load('/img/lightning.png'),
             transparent: true,
           })
         );
-        wall.position.z = -65;
-        wall.position.y = -5;
-        scene.add(wall);
+        wall2.position.z = -75;
+        wall2.position.y = -5;
+        scene.add(wall2);
 
 
         //create a yellow wall behind the first wall
-        const wall2 = new THREE.Mesh(
+        const wall = new THREE.Mesh(
           new THREE.BoxGeometry(400, 200, 0.01),
           new THREE.MeshStandardMaterial({
-            color: 0xf2e30a,
+            color: 0x000000,
             transparent: true,
           })
         );
-        wall2.position.z = -70;
-        wall2.position.y = 200;
-        scene.add(wall2);
+        wall.position.z = -70;
+        wall.position.y = 200;
+        scene.add(wall);
 
 
 
@@ -151,10 +151,10 @@
             //   wall2.position.y = 0;
 
 
-            let maxDist = 200;
-            let minDist = 0;
+            let maxDist = 0;
+            let minDist = -200;
             //keep
-            wall2.position.y = (1-(1+t/(window.innerHeight-document.querySelector("main").scrollHeight))) * (maxDist-minDist) + maxDist;
+            wall.position.y = (1-(1+t/(window.innerHeight-document.querySelector("main").scrollHeight))) * (maxDist-minDist) + maxDist;
 
             
             // console.log(x/dist)
