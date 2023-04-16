@@ -13,9 +13,9 @@
             <a href="/solar">
                 <button class="solar-button button">Solar</button>
             </a>
-            <a href="about_us">
+            <!-- <a href="about_us">
                 <button class="button">About Us</button>
-            </a>
+            </a> -->
         </nav>
     </div>
 </main>
