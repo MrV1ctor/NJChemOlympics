@@ -250,16 +250,230 @@ onMount(() => {
   <div class="main-container">
 
     <Header/>
+  
+    <h1 align="center" style="color:black;">Solar Power</h1>
 
-    <h1>Solar Power</h1>
-  
-    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Soluta minima, praesentium nobis necessitatibus ducimus eos inventore ab similique quod nesciunt magnam perferendis accusantium cumque odio eum excepturi explicabo quasi maxime. Assumenda corporis atque, quos tenetur a esse aliquid commodi totam repudiandae delectus eveniet et voluptates odit praesentium repellendus deserunt. Esse!</p><br><br><br><br><br>
-    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Soluta minima, praesentium nobis necessitatibus ducimus eos inventore ab similique quod nesciunt magnam perferendis accusantium cumque odio eum excepturi explicabo quasi maxime. Assumenda corporis atque, quos tenetur a esse aliquid commodi totam repudiandae delectus eveniet et voluptates odit praesentium repellendus deserunt. Esse!</p><br><br><br><br><br>
-    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Soluta minima, praesentium nobis necessitatibus ducimus eos inventore ab similique quod nesciunt magnam perferendis accusantium cumque odio eum excepturi explicabo quasi maxime. Assumenda corporis atque, quos tenetur a esse aliquid commodi totam repudiandae delectus eveniet et voluptates odit praesentium repellendus deserunt. Esse!</p><br><br><br><br><br>
-    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Soluta minima, praesentium nobis necessitatibus ducimus eos inventore ab similique quod nesciunt magnam perferendis accusantium cumque odio eum excepturi explicabo quasi maxime. Assumenda corporis atque, quos tenetur a esse aliquid commodi totam repudiandae delectus eveniet et voluptates odit praesentium repellendus deserunt. Esse!</p><br><br><br><br><br>
-    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Soluta minima, praesentium nobis necessitatibus ducimus eos inventore ab similique quod nesciunt magnam perferendis accusantium cumque odio eum excepturi explicabo quasi maxime. Assumenda corporis atque, quos tenetur a esse aliquid commodi totam repudiandae delectus eveniet et voluptates odit praesentium repellendus deserunt. Esse!</p><br><br><br><br><br>
-    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Soluta minima, praesentium nobis necessitatibus ducimus eos inventore ab similique quod nesciunt magnam perferendis accusantium cumque odio eum excepturi explicabo quasi maxime. Assumenda corporis atque, quos tenetur a esse aliquid commodi totam repudiandae delectus eveniet et voluptates odit praesentium repellendus deserunt. Esse!</p><br><br><br><br><br>
-  
+    <img src="/img/solar/solarTitle.jpg" alt="A Solar Farm">
+
+    <p>
+      <b>
+        <u>
+          What is Solar Power?
+        </u>
+      </b>
+
+      <br>
+
+      &emsp; &emsp; Solar power is any source of power that uses the sun to generate electricity. We are able to capture solar energy because the sun gives off photons due to a complicated process called nuclear fusion, occuring when “protons of hydrogen atoms violently collide in the sun’s core and fuse to create a helium atom.” This process gives off a lot of energy, including the photons we need to generate electricity.
+    
+    </p>
+
+    <p>
+      <b>
+        <u>
+          How is Solar Power captured?
+        </u>
+      </b>
+
+      <br>
+
+      &emsp; &emsp; There are a few ways solar energy can be harnessed. We can use Photovoltaic Cells in order to capture the energy from the photons, or we could concentrate and convert the energy in the photons into heat energy, and use the heat the drive a turbine.   
+    
+    </p>
+
+    <p>
+      <br>
+
+      <u>Photovoltaic (PV) Cells</u>
+      
+      <br>
+      <br>
+          
+      &emsp; &emsp; Photovoltaic (PV) cells are composed of semiconductor material, most commonly silicon. A semiconductor is a material which has the conductivity between a conductor (like copper) and an insulator (like glass). Silicon is most commonly used in electronics due to its abundance and long lifetime. The efficiency of a PV Cell can be determined by this equation:
+
+      <br>
+
+      output power / total power (on the cell)
+
+      <br>
+      <br>
+            
+      &emsp; &emsp; The amount of electricity that a PV Cell can collect is dependant on the light’s intensity and wavelength. In general, a PV Cell can produce around 1 - 2 watts of DC energy. While this isn’t a lot, PV Cells are usually grouping into modules, also known as solar panels, which are then grouped into solar arrays. Each module usually has 32 - 96 cells. 
+
+      <br>
+      <br>
+            
+      <b>How a PV Cell is Made</b>
+
+      <br>
+      <br>
+
+      <img src="/img/solar/photovoltaic-cell.png" alt="A Model of a PV Cell">
+
+      <br>
+      <br>
+            
+      &emsp; &emsp; PV Cells are composed of 2 semiconductors, usually with coatings on the top and a solid contact on the bottom. The top semiconductor is n-type, and the one underneath is p-type. Both n-type and p-type semiconductors are doped with a material. Doping is a process in which an impurity is added to a material.
+
+      <br>
+      <br>
+
+      &emsp; &emsp; Normally, silicon atoms in silicon crystals all have their octet rule met via covalent bonding, but doping silicon allows for either a surplus or lack of electrons in the covalent bonds.
+
+      <br>
+      <br>
+            
+      &emsp; &emsp; An n-type semiconductor is a semiconductor that is usually doped with phosphorus, arsenic, or antimony, and a p-type semiconductor is usually doped with boron or indium. phosphorus, arsenic, and antimony were chosen as the impurities to add for an n-type semiconductor because they all have 5 valence electrons. Boron and indium both have 3 valence electrons.
+
+      <br>
+      <br>
+
+      <img src="/img/solar/pnjunction.png" alt="Electrons And Holes Diagram">
+
+      <br>
+      <br>
+            
+      &emsp; &emsp; n-type semiconductors have an extra valence electron on each atom of doped material, while p-type semiconductors have a lack of a valence electron, or “hole”  on each atom of material introduced. When these two materials are sandwiched together, the place where they meet is called the p-n junction, which forms an electric field. When an electric charge is present, electrons flow from the n-type to the p-type semiconductor.
+
+      <br>
+      <br>
+
+      <img src="/img/solar/conductionband.png" alt="Conduction Band Diagram">
+
+      <br>
+      <br>
+            
+      &emsp; &emsp; Electricity is able to flow through semiconductor materials due to the distance of the conduction band from the valence shell. The conduction band is the band of orbitals above the valence band that electrons can jump to when excited. The band gap specifies how much energy is required to excite electrons to the conduction band. The band gap is important for the function of a PV cell.
+
+      <br>
+      <br>
+
+      <b>How a PV Cell Works</b>
+
+      <br>
+      <br>
+
+      &emsp; &emsp; PV Cells utilize the photovoltaic effect, which is a process that generates voltage or electric current in a photovoltaic cell when it is exposed to sunlight. When a photon’s wavelength matches the band gap of the cell, it is absorbed, and the energy is transferred to an electron of the semiconductor, allowing the electron to jump to the conduction band. As mentioned above, this will start flowing electrons from the n-type to the p-type semiconductors, which are then collected at the bottom of the cell.
+
+      <br>
+      <br>
+      
+      <u>Concentrating Solar-Thermal Power (CSP) Systems</u>
+
+      <br>
+      <br>
+
+      &emsp; &emsp; There are many different types of CSP Systems, including linear concentrator systems, dish systems, and power tower systems. Each of these systems work slightly differently from eachother, but all have the same core concept, which is taking advantage of the light given off from the sun, and turning it into heat. 
+
+      <br>
+      <br>
+
+      Linear Concentrator Systems
+
+      <br>
+
+      &emsp; &emsp; Long, trough shaped mirrors are turned towards the sun, and focus light on a black tube, which hold a liquid. The liquid is circulated through the tube, and is passed through a heat exchanger, which turns water into steam, then uses that steam to drive a turbine. 
+
+      <br>
+      <br>
+
+      Dish Systems
+
+      <br>
+
+      &emsp; &emsp; Dish systems work similarly to Linear Concentrator systems, but are a different shape. Dish systems use mirrors arranged in a dish shape, similar to satellite dishes, in order to concentrate light on a thermal receiver, which absorbs the heat and drives a turbine.
+
+      <br>
+      <br>
+
+      Power Tower Systems
+
+      <br>
+
+      &emsp; &emsp; A large plot of flat mirrors which track the sun to focus light onto a receiver, found on the top of a tower, which sits in the middle of the plot. A fluid is heated and turned into the steam in the receiver, and once again is used to drive a turbine.
+
+      <br>
+      <br>
+      
+    </p>
+
+    <p>
+      <b>
+        <u>
+          What are the benefits of Solar Power?
+        </u>
+      </b>
+
+      <br>
+
+      &emsp; &emsp; As a renewable source of power, solar energy has an important role in reducing greenhouse gas emissions and mitigating climate change, which is critical to protecting humans, wildlife, and ecosystems. Solar energy can also improve air quality and reduce water use from energy production. The cost of installing solar panels has been lowered from $45,000 to $31,500. Associated with installing solar panels, the electric bill has decreased from $200 to $0.
+      
+      <br>
+      <br>
+ 
+      Sustainability:
+      
+      <br>
+ 
+      &emsp; &emsp; While fossil fuels have an expiration date that may be fast approaching, the sun will likely be around for at least a few billion years. 
+      
+      <br>
+      <br>
+ 
+      Low Environmental Impact:
+      
+      <br>
+ 
+      &emsp; &emsp; The greenhouse gas emissions produced from Solar Energy are inconsequential as the technology does not require any fuel combustion.
+      
+      <br>
+      <br>
+ 
+      Energy Independence:
+      
+      <br>
+ 
+      &emsp; &emsp; Since the sun shines across the globe, every country is a potential energy producer, thus allowing for greater energy independence and security. Solar energy doesn’t only promise to bring security and independence at the national level, but solar panels can also be installed on individual homes, providing power that does not depend on being connected to a larger electrical grid.
+            
+      <br> 
+      <br> 
+      
+      <b>
+        <u>
+          Limitations and shortcomings behind Solar Power:
+        </u>
+      </b>
+
+      <br>
+
+      Intermittacy:
+            
+      <br> 
+    
+      &emsp; &emsp; One of the biggest problems that solar energy technology poses are that energy is only generated while the sun is shining, which means that nighttime and overcast days can interrupt the supply. As the global capacity for solar power continues to rise, nations like Japan and other global leaders in solar energy technology are focusing on developing adequate energy storage to deal with this issue.
+      
+      <br> 
+      <br> 
+      
+      Land-Use
+            
+      <br> 
+      
+      &emsp; &emsp; Solar energy may take up a significant amount of land and cause land degradation or habitat loss for wildlife. Large utility-scale PV systems may require up to 3.5 to 10 acres per megawatt, and CSP facilities require anywhere from 4 to 16.5 acres per megawatt.
+            
+      <br>
+      <br>
+
+      Scarcity of Materials
+
+      <br> 
+
+      &emsp; &emsp; Many rare materials are byproducts of other processes rather than the focus of targeted mining efforts. Recycling PV material and advances in nanotechnology that increase solar-cell efficiency could help boost supply and perhaps find material substitutes in greater abundance.
+      
+      <br> 
+      <br> 
+    
+    </p>
   </div>
 
 </main>
@@ -273,22 +487,32 @@ canvas {
   left: 0;
 }
 
-
 main {
-  width: 100vw;
-  color: black;
-  z-index: 99;
-  position: absolute;
-  width: 100%;
+    width: 100vw;
+    color: black;
+    z-index: 99;
+    position: absolute;
+    width: 100%;
+    
+    
+    opacity: 1;
+  }
   
+  .main-container {
+    background-color: rgb(187, 187, 187, 0.75);
+    margin: 7.5vw auto 7.5vw auto;
+    width: 70vw;
+  }
 
-  opacity: 1;
-}
+  img {
+      width: 50%;
+      /* center img using margin */
+      margin-left: 17vw;
+    }
 
-.main-container {
-  background-color: rgb(187, 187, 187, 0.5);
-  margin: 7.5vw auto 7.5vw auto;
-  width: 70vw;
-}
+  p {
+    font-size: 1.5vw;
+    margin: 2vw;
+  }
 
 </style>

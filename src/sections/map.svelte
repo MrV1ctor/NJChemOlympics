@@ -829,17 +829,25 @@
     
     </div>
 
-
-
 </main>
 
 <style>
+
+    main {
+        background-color: rgba(0, 0, 0, 0.4);
+    }
+
+    .map-div {
+        background-color: rgba(0, 0, 0, 0.3);
+    }
 
     .buttons {
         width: 100%;
         display: flex;
         flex-direction: row;
         justify-content: center;
+
+        padding: 2rem;
     }
     
     .buttons button {
@@ -853,6 +861,10 @@
         border-radius: 0.5rem;
 
         margin: 0 0.5rem 0 0.5rem
+    }
+
+    .buttons button:hover {
+        cursor: pointer;
     }
 
     .netEnergy {
