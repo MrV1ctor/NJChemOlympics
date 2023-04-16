@@ -437,6 +437,18 @@
                     // console.log("heatmap: numGeo");
                     break;
             }
+            
+            let maxGradient = document.getElementById("max");
+            if (maxGradient.innerHTML != max.toLocaleString())
+            {
+                maxGradient.innerHTML = max.toLocaleString();
+            }
+            let marginLeft = (95-max.toLocaleString().length)+"%";
+            if (maxGradient.style.marginLeft != marginLeft)
+            {
+                maxGradient.style.marginLeft = marginLeft;
+            }
+            
             let percent = val/max;
             // if (percent < 0.25) {
             //     fill = "#ff0000";
@@ -821,9 +833,35 @@
     
     </div>
 
+    <div class="legend">
+        <p id="min">0</p>
+        <p id="max">100</p>
+        <div class="gradient"></div>
+        
+    </div>
+
 </main>
 
 <style>
+
+    .legend {
+        margin-top: -5vw;
+    }
+
+    #min {
+        margin-left: 5%;
+    }
+
+    #max {
+        margin-left: 90%;
+        margin-top: -3vw;
+    }
+
+    .gradient {
+        height: 50px;
+        background-image: linear-gradient(to right, #0000ff, #ff0000);
+    }
+
 
     main {
         background-color: rgba(0, 0, 0, 0.7);
@@ -892,7 +930,7 @@
     }
 
     .selected {
-        outline: 2px solid black !important;
+        outline: 2px solid rgb(148, 147, 147) !important;
     }
 
     .map-div {
