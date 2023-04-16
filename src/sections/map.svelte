@@ -890,7 +890,9 @@
         border: none;
         border-radius: 0.5rem;
 
-        margin: 0 0.5rem 0 0.5rem
+        margin: 0 0.5rem 0 0.5rem;
+        z-index: 10;
+
     }
 
     .buttons button:hover {
