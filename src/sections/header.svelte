@@ -1,6 +1,9 @@
 <main>
     <div class="header">
         <nav class="nav-container">
+            <a href="/">
+                <button class="home-button button">Home</button>
+            </a>
             <a href="/geothermal">
                 <button class="geo-button button">Geothermal</button>
             </a>
@@ -56,6 +59,11 @@
 
     .button:hover {
         cursor: pointer;
+    }
+
+    .geo-button {
+        border: 0.2rem solid var(--main-1);
+        background-color: var(--main-3);
     }
 
     .geo-button {

@@ -174,7 +174,7 @@
             // scroll amount
             const t = document.body.getBoundingClientRect().top;
             
-            console.log(t)
+            // console.log(t)
     
     
             triangle.rotation.z = 0.01 * t;
