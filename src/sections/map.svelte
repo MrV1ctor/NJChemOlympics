@@ -460,15 +460,7 @@
 
 <main>
 
-<!-- 
 
-                "netGen": 9_181_831,
-            "numSol" : 48, "numHydro" : 15, "numGeo" : 12,
-
-
-    Net Energy Generation (MWh): # of Solar Power Plants: # of Hydro Power Plants: # of Geothermal Power Plants: 
-
- -->
     <div class="buttons">
         <button	class="netEnergy" class:selected="{selectedStat === 0}"
         on:click="{() => {selectedStat = 0; title = "Net Energy Generation (MWh)"}}">
@@ -834,19 +826,19 @@
 <style>
 
     main {
-        background-color: rgba(0, 0, 0, 0.4);
+        background-color: rgba(0, 0, 0, 0.7);
     }
 
-    .map-div {
+    /* .map-div {
         background-color: rgba(0, 0, 0, 0.3);
-    }
+    } */
 
     .buttons {
         width: 100%;
         display: flex;
         flex-direction: row;
         justify-content: center;
-
+        /* padding-top: 5vw; */
         padding: 2rem;
     }
     
@@ -907,6 +899,7 @@
         width: 100%;
         height: auto;
         /* background-color: rgb(94, 94, 94); */
+        margin-top: -1vw;
     }
 
     .map-title {
