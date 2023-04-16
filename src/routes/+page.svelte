@@ -241,6 +241,8 @@
             </div>
         </div>
 
+        <div class="spacer"></div>
+
         <Map/>
 
     </div>
@@ -275,15 +277,13 @@
         width: 70vw;
     }
 
-    .main-container {
-        background-color: rgb(187, 187, 187, 0.5);
-        margin: 7.5vw auto 7.5vw auto;
-        width: 70vw;
-    }
-
     .secondary-container {
         display: flex;
         flex-direction: row;
+    }
+
+    .spacer {
+        min-height: 6rem;
     }
 
     .section, .intro {
