@@ -894,11 +894,13 @@
     .map-div {
         width: 100%;
         height: auto;
+        /* background-color: rgb(94, 94, 94); */
     }
 
     .map-title {
         text-align: center;
         margin-bottom: none;
+        margin-bottom: -77px;
     }
 
     svg {

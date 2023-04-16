@@ -156,8 +156,6 @@
             //keep
             wall2.position.y = (1-(1+t/(window.innerHeight-document.querySelector("main").scrollHeight))) * (maxDist-minDist) + maxDist;
 
-            console.log(wall2.position.y)
-//not working maybe
             
             // console.log(x/dist)
     
@@ -227,7 +225,7 @@
         <div class="secondary-container">
             <div class="intro">
                 <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto rem exercitationem accusamus nulla quasi in voluptatem molestiae atque voluptas veritatis, modi nobis repudiandae excepturi recusandae possimus non perferendis nam maxime mollitia sunt voluptate. Ex expedita quasi vel fugit voluptatum facilis aliquid nisi quidem illum, ut tempora autem eum cum eveniet provident consequuntur hic quae laboriosam quam eos dolorem? Modi ea quia tempora eos et necessitatibus accusantium alias, illum aperiam saepe, animi tempore sunt cupiditate officia praesentium unde veritatis possimus, doloribus fuga molestiae reprehenderit vitae omnis tenetur mollitia. Itaque nihil quisquam explicabo mollitia nobis earum autem adipisci ducimus cum. Eveniet assumenda veniam quo perspiciatis rem ab enim doloremque? Quasi ad atque impedit incidunt fugit. Neque, iure harum temporibus incidunt sapiente velit sequi ipsam molestias magni! Autem voluptate harum error ullam doloremque ducimus nulla ipsum quam minus officiis recusandae itaque nihil, illum consectetur voluptatem quibusdam alias sapiente? Nostrum expedita nam placeat voluptas repellendus porro. Consequuntur ad laudantium numquam. Obcaecati, rerum. Placeat dicta blanditiis inventore incidunt eligendi cum. Libero nostrum facilis accusamus incidunt atque beatae porro fuga necessitatibus?
+                    &emsp; &emsp; Welcome to our website, where we'll dive deep into the world of renewable energy in the United States! As you may know, the US is one of the largest energy consumers in the world, having a large energy consumption per person. In America, the average person uses about 85.87 Megawatt Hours of energy (MWh). Petroleums and natural gases are still by far the most consumed energy sources in America, however, renewable energy sources are becoming more and more widespread. In this website, we aim to educate you about some of the alternative energy sources that America has started to use, including hydroelectric, geothermal, and solar power, and their future in the U.S.! Below is a map that, when hovered, shows the details of the energy production and the number of power plants each state has for a given renewable energy source. You can also change which statistic the heatmap shows by clicking on their respective icons. Finally, to learn more about these interesting renewable energy sources, click on the buttons at the top of the page or on the images on the right.
                 </p>
             </div>
             <div class="landing-container">
@@ -254,33 +252,33 @@
 <style>
 
     canvas {
-      position: fixed;
-      top: 0;
-      left: 0;
+        position: fixed;
+        top: 0;
+        left: 0;
     }
     
     
     main {
-      width: 100vw;
-      color: white;
-      z-index: 99;
-      position: absolute;
-      width: 100%;
-      
-    
-      opacity: 1;
+        width: 100vw;
+        color: white;
+        z-index: 99;
+        position: absolute;
+        width: 100%;
+        
+        
+        opacity: 1;
     }
     
     .main-container {
-      background-color: rgb(187, 187, 187, 0.5);
-      margin: 7.5vw auto 7.5vw auto;
-      width: 70vw;
+        background-color: rgb(187, 187, 187, 0.5);
+        margin: 7.5vw auto 7.5vw auto;
+        width: 70vw;
     }
 
     .main-container {
-    background-color: rgb(187, 187, 187, 0.5);
-    margin: 7.5vw auto 7.5vw auto;
-    width: 70vw;
+        background-color: rgb(187, 187, 187, 0.5);
+        margin: 7.5vw auto 7.5vw auto;
+        width: 70vw;
     }
 
     .secondary-container {
@@ -289,7 +287,7 @@
     }
 
     .section, .intro {
-        margin: 1rem;
+        margin: 1rem 3rem 1rem 3rem;
     }
 
 
@@ -310,7 +308,7 @@
     }
 
     .intro p {
-        text-align: right;
+        text-align: left;
     }
 
     .geo-sect {
