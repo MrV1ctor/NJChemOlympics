@@ -506,6 +506,8 @@ onMount(() => {
       <br> 
       
     </p>
+
+    <!-- Anything accordion related including styling & scripting were made by w3schools.com at https://www.w3schools.com/howto/howto_js_accordion.asp -->
     
     <button class="accordion">Citations</button>
     <div class="accordion-text">
