@@ -320,21 +320,7 @@
 
     let title = "Net Energy Generation (MWh)"
 
-    //find the max values
-    for (let i = 0; i < info.length; i++) {
-        if (info[i].netGen > maxNetGen) {
-            maxNetGen = info[i].netGen;
-        }
-        if (info[i].numSol > maxNumSol) {
-            maxNumSol = info[i].numSol;
-        }
-        if (info[i].numHydro > maxNumHydro) {
-            maxNumHydro = info[i].numHydro;
-        }
-        if (info[i].numGeo > maxNumGeo) {
-            maxNumGeo = info[i].numGeo;
-        }
-    }
+
 
     let paths = [];
     
@@ -356,6 +342,22 @@
 
         window.addEventListener('mousemove', toolTipXY);
 
+        //find the max values
+        for (let i = 0; i < info.length; i++) {
+            if (info[i].netGen > maxNetGen) {
+                maxNetGen = info[i].netGen;
+            }
+            if (info[i].numSol > maxNumSol) {
+                maxNumSol = info[i].numSol;
+            }
+            if (info[i].numHydro > maxNumHydro) {
+                maxNumHydro = info[i].numHydro;
+            }
+            if (info[i].numGeo > maxNumGeo) {
+                maxNumGeo = info[i].numGeo;
+            }
+        }
+        
         setInterval(() => {
             let path = document.querySelector(".map-div svg path:hover");
             if (path != null) {
@@ -442,12 +444,9 @@
             if (maxGradient.innerHTML != max.toLocaleString())
             {
                 maxGradient.innerHTML = max.toLocaleString();
-            }
-            let marginLeft = (95-max.toLocaleString().length/2)+"%";
-            if (maxGradient.style.marginLeft != marginLeft)
-            {
+                let marginLeft = (95-max.toLocaleString().length/2)+"%";
                 maxGradient.style.marginLeft = marginLeft;
-            }
+            } 
             
             let percent = val/max;
             // if (percent < 0.25) {

@@ -243,9 +243,12 @@
 
     <Header/>
 
-    <h1 align="center" style="color:black;">Geothermal Energy</h1>
+    <h1 align="center" style="color:black;">Geothermal Power</h1>
 
-    <img src="/img/geo/geothermalTitle.jpeg" alt="A Geothermal Power Plant">
+    <div class="image-container">
+      <img src="/img/geo/geothermalTitle.jpeg" alt="A Geothermal Power Plant">
+      <p class="source">Photo by <a href="https://www.dgi.com/blog/site-selection-geothermal-power-plants-comprehensive-visualization-geographical-data/">Dynamic Graphics, INC.</a></p>
+    </div>
 
     <p>
       <b>
@@ -291,8 +294,14 @@
       <br>
       <br>
       
+    </p>
+
+    <div class="image-container">
       <img src="/img/geo/drySteamPowerPlant.gif" alt="A Model of a Dry Steam Power Plant">
-      
+      <p class="source">Diagram by <a href="https://www.saveonenergy.com/green-energy/geothermal-energy/">saveonenergy</a></p>
+    </div>
+
+    <p>
       <br>
       <br>
       
@@ -303,8 +312,14 @@
       
       <br>
       <br>
-      
-      <img src="/img/geo/flashSteamPowerPlant.gif" alt="A Model of a Flash Steam Steam Power Plant">
+    </p>
+
+    <div class="image-container">
+      <img src="/img/geo/flashSteamPowerPlant.gif" alt="A Model of a Flash Steam Power Plant">
+      <p class="source">Diagram by <a href="https://www.saveonenergy.com/green-energy/geothermal-energy/">saveonenergy</a></p>
+    </div>
+    
+    <p>
       
       <br>
       <br>
@@ -316,8 +331,14 @@
       
       <br>
       <br>
-      
+    </p>
+
+    <div class="image-container">
       <img src="/img/geo/binaryCyclePowerPlant.gif" alt="A Model of a Binary Cycle Power Plant">
+      <p class="source">Diagram by <a href="https://www.saveonenergy.com/green-energy/geothermal-energy/">saveonenergy</a></p>
+    </div>
+    
+    <p>
       
       <br>
       <br>
@@ -340,7 +361,7 @@
 
       <br>
 
-      &emsp; &emsp; It is renewable because the heat flowing from Earth’s interior is continually replenished by the decay of naturally occurring radioactive elements and will still remain available for billions of years. Geothermal power plants produce electricity consistently and run 24/7 regardless of weather conditions. U.S. geothermal resources can be harnessed for power production without importing fuel. Geothermal power plants are compact since they use less land power per gigawatt-hour than comparable capacity coal, wind, and solar photovoltaic power stations. Modern closed-loop geothermal power plants emit no greenhouse gases and have life cycle emissions four times lower than solar PV and six to twenty times lower than natural gas. 
+      &emsp; &emsp; It is renewable because the heat flowing from Earth's interior is continually replenished by the decay of naturally occurring radioactive elements and will still remain available for billions of years. Geothermal power plants produce electricity consistently and run 24/7 regardless of weather conditions. U.S. geothermal resources can be harnessed for power production without importing fuel. Geothermal power plants are compact since they use less land power per gigawatt-hour than comparable capacity coal, wind, and solar photovoltaic power stations. Modern closed-loop geothermal power plants emit no greenhouse gases and have life cycle emissions four times lower than solar PV and six to twenty times lower than natural gas. 
     
     </p>
 
@@ -355,6 +376,57 @@
 
       &emsp; &emsp; The largest disadvantage of geothermal energy is that it is location specific since it needs to be built in places where energy is accessible which would mean that some areas are not suitable for a geothermal power plant. Although Geothermal energy does not release greenhouse gases, many of these gases sted under the Earth's surface and are released into the atmosphere during digging. Geothermal energy also runs the risk of triggering earthquakes. This is mainly caused by the alterations in the Earth’s structure due to digging. Since most geothermal plants are away from population centers, the implications of these earthquakes are relatively minor. Geothermal energy is an expensive resource, but where the upfront costs are high, the outlay can be recouped as part of a long-term investment. To maintain the sustainability of geothermal energy, geothermal energy fluid needs to be pumped back into the underground reservoirs faster than it’s depleted. 
 
+    
+    </p>
+
+    <p>
+      <b>
+        <u>
+          The chemistry behind the process:
+        </u>
+      </b>
+
+      <br>
+
+      <u>•Mineral Equilibria:</u>
+      <br>
+      &emsp; -Temperature-dependent reactions between the geothermal fluid and minerals control the composition of the geothermal fluid. Chemical equations for the formation of alteration minerals can be written to which the water composition is compared. For example, at equilibrium, ratios of sodium and potassium in a solution are controlled by a temperature-dependent exchange reaction:
+
+      <br>
+      <br>
+      NaAlSi3O8 + K+ = KAl Si3O8 + Na+ (1) 
+      <br>
+      Albite 	 &emsp; &emsp; &emsp; &emsp; &emsp;		K-feldspar
+      <br>
+      <br>
+    
+
+      <u>•Some of the chemicals that are present in the geothermal fluid are:</u>
+      <br>
+      &emsp; -Chloride (Cl) <br>
+      &emsp; -Silica (SiO2) <br>
+      &emsp; -Magnesium (Mg) <br>
+      &emsp; -Hydrogen sulfide (H2S) <br>
+      &emsp; -Fluoride (F) <br>
+      &emsp; -Dissolved oxygen <br>
+      <br> <br>
+
+    </p>
+
+    <p>
+      <b>
+        <u>
+          Conclusion:
+        </u>
+      </b>
+
+      <br>
+      
+      &emsp; &emsp; Geothermal energy is a type of renewable energy that is stored in the earth’s crust. Geothermal power plants draw fluids from the ground to produce steam, which drives a turbine and generates electricity. Geothermal energy plants are compact since they use less land per gigawatt-hour. Geothermal energy is a rising source of renewable energy that is only produced in some parts of the U.S., yet it is sure to become an important energy source. 
+      
+      <br>
+      <br>
+      <br>
     
     </p>
 

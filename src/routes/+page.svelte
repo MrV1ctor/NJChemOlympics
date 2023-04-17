@@ -154,7 +154,7 @@
             let maxDist = 0;
             let minDist = -200;
             //keep
-            wall.position.y = (1-(1+t/(window.innerHeight-document.querySelector("main").scrollHeight))) * (maxDist-minDist) + maxDist;
+            wall.position.y = (1-(1+t/(window.innerHeight-document.querySelector("main").scrollHeight-100))) * (maxDist-minDist) + maxDist;
 
             
             // console.log(x/dist)
