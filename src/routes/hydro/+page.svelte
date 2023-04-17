@@ -461,6 +461,18 @@ onMount(() => {
         renderer.render(scene, camera);
     }
 
+    var acc = document.getElementsByClassName("accordion");
+  
+    acc[0].addEventListener("click", function() {
+        this.classList.toggle("active");
+        var text = this.nextElementSibling;
+        if (text.style.maxHeight) {
+        text.style.maxHeight = null;
+        } else {
+        text.style.maxHeight = text.scrollHeight + "px";
+        } 
+    
+    });
 
 });
 
@@ -638,7 +650,7 @@ onMount(() => {
 
       <div class="image-container">
         <img src="/img/hydro/hydroelectricpowersystem.gif" alt="A diagram of a hydroelectric power system">
-        <p class="source">Photo by <a href="/404">Somebody</a></p>
+        <p class="source">Photo by <a href="#">Somebody</a></p>
       </div>
 
       <p>
@@ -745,6 +757,38 @@ onMount(() => {
         <br>
       
       </p>
+
+      <button class="accordion">Citations</button>
+      <div class="accordion-text">
+        <p>
+          EIA. (2022, March 16). Hydropower explained - U.S. Energy Information Administration. EIA. Retrieved April 16, 2023, from <a href="https://www.eia.gov/energyexplained/hydropower/">https://www.eia.gov/energyexplained/hydropower/</a>
+          <br> 
+          <br> 
+          Luis, J., Sidek, L. M., Desa, M. N. M., & Julien, P. Y. (2013). Sustainability of hydropower as source of renewable and clean energy. IOP Conference Series: Earth and Environmental Science, 16. doi:10.1088/1755-1315/16/1/012050
+          <br> 
+          <br> 
+          MIT. (2021, March 2). Why aren't we looking at more hydropower? MIT Climate Portal. Retrieved April 16, 2023, from <a href="https://climate.mit.edu/ask-mit/why-arent-we-looking-more-hydropower">https://climate.mit.edu/ask-mit/why-arent-we-looking-more-hydropower</a>
+          <br> 
+          <br> 
+          Moran, E. F., Lopez, M. C., Moore, N., Müller, N., & Hyndman, D. W. (2018). Sustainable hydropower in the 21st century. Proceedings of the National Academy of Sciences, 115(47), 11891-11898. <a href="https://doi.org/10.1073/pnas.1809426115">https://doi.org/10.1073/pnas.1809426115</a>
+          <br> 
+          <br> 
+          Moran, E. F., Lopez, M. C., Moore, N., Müller, N., & Hyndman, D. W. (2018). Sustainable hydropower in the 21st century. Proceedings of the National Academy of Sciences, 115(47), 11891-11898. <a href="https://doi.org/10.1073/pnas.1809426115">https://doi.org/10.1073/pnas.1809426115</a>
+          <br> 
+          <br> 
+          Somani, A., Voisin, N., Tipireddy, R., Turner, S., Veselka, T., Ploussard, Q., Koritarov, V., Mosier, T., Mohanpurkar, M., Ingram, M., Signore, S., Hadjerioua, B., Smith, B., O'Connor, P., & Shan, R. (2021, January). Hydropower Value Study: Current Status and Future Opportunities. Hydro Wire: U.S. Department of Energy. <a href="https://www.energy.gov/sites/prod/files/2021/01/f82/hydropower-value-study-v2.pdf">https://www.energy.gov/sites/prod/files/2021/01/f82/hydropower-value-study-v2.pdf</a>
+          <br> 
+          <br> 
+          U.S. Department of the Interior Bureau of Reclamation Power Resource Office. (2005, July). Hydroelectric Power. Reclamation: Managing Water in the West. <a href="https://www.usbr.gov/power/edu/pamphlet.pdf">https://www.usbr.gov/power/edu/pamphlet.pdf</a>
+          <br> 
+          <br> 
+          Walsh, D., Coleman, J., Rosenthall, P., & Kiryushin, S. (2020, December 21). The benefits of hydropower. Environment Journal. <a href="https://environmentjournal.online/features/the-benefits-of-hydropower/">https://environmentjournal.online/features/the-benefits-of-hydropower/</a>
+          <br> 
+          <br> 
+
+  
+          </p>
+      </div>
 
     </div>
   

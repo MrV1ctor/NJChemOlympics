@@ -209,6 +209,19 @@
         
         }
     
+        var acc = document.getElementsByClassName("accordion");
+  
+        acc[0].addEventListener("click", function() {
+            this.classList.toggle("active");
+            var text = this.nextElementSibling;
+            if (text.style.maxHeight) {
+            text.style.maxHeight = null;
+            } else {
+            text.style.maxHeight = text.scrollHeight + "px";
+            } 
+        
+        });
+
     });
     
     </script>
@@ -243,6 +256,19 @@
         <div class="spacer"></div>
 
         <Map/>
+
+        <button class="accordion">Citations</button>
+        <div class="accordion-text">
+          <p>
+            EIA. (n.d.). Frequently Asked Questions (FAQs) - U.S. Energy Information Administration. Frequently Asked Questions (FAQs) - U.S. Energy Information Administration (EIA). Retrieved April 15, 2023, from <a href="https://www.eia.gov/tools/faqs/faq.php?id=85&t=1">https://www.eia.gov/tools/faqs/faq.php?id=85&t=1</a>
+            <br> 
+            <br> 
+            U.S. Energy Information Administration. (2022, October 27). Annual Energy Outlook 2022. Presentation to Electricity Advisory Committee. <a href="https://www.energy.gov/sites/default/files/2022-11/05%20October%2027%20-%20EIA%20Annual%20Energy%20Outlook%202022.pdf">https://www.energy.gov/sites/default/files/2022-11/05%20October%2027%20-%20EIA%20Annual%20Energy%20Outlook%202022.pdf</a>
+            <br> 
+            <br> 
+    
+            </p>
+        </div>
 
     </div>
     
