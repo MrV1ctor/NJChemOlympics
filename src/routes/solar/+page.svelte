@@ -284,6 +284,9 @@ onMount(() => {
       <br>
       <br>
  
+      <br>
+      <br>
+      
       <b>
         <u>
           How is Solar Power captured?
@@ -295,10 +298,10 @@ onMount(() => {
       &emsp; &emsp; There are a few ways solar energy can be harnessed. We can use Photovoltaic Cells in order to capture the energy from the photons, or we could concentrate and convert the energy in the photons into heat energy, and use the heat the drive a turbine.   
     
       <br>
+      <br>
 
       <u>Photovoltaic (PV) Cells</u>
       
-      <br>
       <br>
           
       &emsp; &emsp; Photovoltaic (PV) cells are composed of semiconductor material, most commonly silicon. A semiconductor is a material which has the conductivity between a conductor (like copper) and an insulator (like glass). Silicon is most commonly used in electronics due to its abundance and long lifetime. The efficiency of a PV Cell can be determined by this equation:
@@ -507,6 +510,23 @@ onMount(() => {
       
     </p>
 
+    <p>
+      <b>
+        <u>
+          Conclusion:
+        </u>
+      </b>
+
+      <br>
+      
+      &emsp; &emsp; Solar power is a renewable energy source that plays a vital role in reducing greenhouse gas emissions and mitigating climate change, Aside from these advantages, solar panels take up a significant amount of land, which leads to a degradation of habitat loss for wildlife. Although solar power has both advantages and disadvantages, solar power is the number one renewable energy source used in the U.S.
+
+      <br>
+      <br>
+      <br>
+    
+    </p>
+
     <!-- Anything accordion related including styling & scripting were made by w3schools.com at https://www.w3schools.com/howto/howto_js_accordion.asp -->
     
     <button class="accordion">Citations</button>
@@ -617,8 +637,17 @@ main {
     transition: max-height 0.2s ease-out;
   }
 
+  .accordion-text p {
+    font-size: 1.5rem;
+    margin: 2vw;
+  }
+
   .accordion-text a {
     color: rgb(255, 255, 0)
   }
-
+  
+  p {
+    font-size: 1.5vw;
+    margin: 2vw;
+  }
 </style>
