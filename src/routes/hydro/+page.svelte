@@ -3,6 +3,8 @@
 
     hippity, hoppity, your code is now my property
 
+    nah but for real this is a pretty good water shader for threejs, all credit to the guy who made it in the above link
+
  -->
 <script>
     import Header from '../../sections/header.svelte'
@@ -15,7 +17,12 @@
 import { onMount } from 'svelte';
 onMount(() => {
 
-    var camera, scene, renderer, renderTarget, depthMaterial, clock;
+    var camera, 
+    scene, 
+    renderer, 
+    renderTarget, 
+    depthMaterial, 
+    clock;
 
     var water1,
     water2,
@@ -34,385 +41,343 @@ onMount(() => {
     animate();
 
     function init() {
-    clock = new THREE.Clock();
+        clock = new THREE.Clock();
 
-    camera = new THREE.PerspectiveCamera(
-        70,
-        window.innerWidth / window.innerHeight,
-        0.1,
-        100
-    );
-    camera.position.set(0, 6, 8);
+        camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
 
-    scene = new THREE.Scene();
-    scene.background = new THREE.Color(0x32a852);
+        scene = new THREE.Scene();
+        scene.background = new THREE.Color(0x32a852);
 
-    // lights
+        var dirLight = new THREE.DirectionalLight(0xffffff, 0.9);
+        dirLight.position.set(0, 5, 5);
+        scene.add(dirLight);
+        
+        camera.position.set(0, 5, 5);
+        camera.rotation.x = -0.75;
 
-    var ambientLight = new THREE.AmbientLight(0xcccccc, 0.4);
-    scene.add(ambientLight);
 
-    var dirLight = new THREE.DirectionalLight(0xffffff, 0.8);
-    dirLight.position.set(0, 5, 5);
-    scene.add(dirLight);
+        //add a large wall
+        var wallGeometry = new THREE.BoxBufferGeometry(21, 10, 1);
+        var wallMaterial = new THREE.MeshLambertMaterial({ color: 0x524f4f });
+        var wall = new THREE.Mesh(wallGeometry, wallMaterial);
+        wall.position.z = -5;
+        wall.position.y = -3;
+        scene.add(wall);
 
-    // border
+        //add 4 tall sections coming out of the wall
+        var tallGeometry = new THREE.BoxBufferGeometry(1, 10, 1);
+        var tallMaterial = new THREE.MeshLambertMaterial({ color: 0x6b6868 });
+        var tall1 = new THREE.Mesh(tallGeometry, tallMaterial);
+        tall1.position.z = -4;
+        tall1.position.y = -3;
+        tall1.position.x = -10;
+        scene.add(tall1);
 
-    // var boxGeometry = new THREE.BoxBufferGeometry(10, 1, 1);
-    // var boxMaterial = new THREE.MeshLambertMaterial({ color: 0xea4d10 });
+        var tall2 = new THREE.Mesh(tallGeometry, tallMaterial);
+        tall2.position.z = -4;
+        tall2.position.y = -3;
+        tall2.position.x = -5;
+        scene.add(tall2);
 
-    // var box1 = new THREE.Mesh(boxGeometry, boxMaterial);
-    // box1.position.z = 4.5;
-    // scene.add(box1);
+        var tall3 = new THREE.Mesh(tallGeometry, tallMaterial);
+        tall3.position.z = -4;
+        tall3.position.y = -3;
+        tall3.position.x = 0;
+        scene.add(tall3);
 
-    // var box2 = new THREE.Mesh(boxGeometry, boxMaterial);
-    // box2.position.z = -4.5;
-    // scene.add(box2);
+        var tall4 = new THREE.Mesh(tallGeometry, tallMaterial);
+        tall4.position.z = -4;
+        tall4.position.y = -3;
+        tall4.position.x = 5;
+        scene.add(tall4);
 
-    // var box3 = new THREE.Mesh(boxGeometry, boxMaterial);
-    // box3.position.x = -5;
-    // box3.rotation.y = Math.PI * 0.5;
-    // scene.add(box3);
+        var tall5 = new THREE.Mesh(tallGeometry, tallMaterial);
+        tall5.position.z = -4;
+        tall5.position.y = -3;
+        tall5.position.x = 10;
+        scene.add(tall5);
 
-    // var box4 = new THREE.Mesh(boxGeometry, boxMaterial);
-    // box4.position.x = 5;
-    // box4.rotation.y = Math.PI * 0.5;
-    // scene.add(box4);
 
-    //add a large wall
-    var wallGeometry = new THREE.BoxBufferGeometry(21, 10, 1);
-    var wallMaterial = new THREE.MeshLambertMaterial({ color: 0x524f4f });
-    var wall = new THREE.Mesh(wallGeometry, wallMaterial);
-    wall.position.z = -5;
-    wall.position.y = -3;
-    scene.add(wall);
+        renderer = new THREE.WebGLRenderer({
+            canvas: document.querySelector('#bg')
+        });
+        
+        renderer.setPixelRatio(window.devicePixelRatio);
+        
+        renderer.setSize(window.innerWidth, window.innerHeight);
+        
 
-    //add 4 tall sections coming out of the wall
-    var tallGeometry = new THREE.BoxBufferGeometry(1, 10, 1);
-    var tallMaterial = new THREE.MeshLambertMaterial({ color: 0x6b6868 });
-    var tall1 = new THREE.Mesh(tallGeometry, tallMaterial);
-    tall1.position.z = -4;
-    tall1.position.y = -3;
-    tall1.position.x = -10;
-    scene.add(tall1);
-
-    var tall2 = new THREE.Mesh(tallGeometry, tallMaterial);
-    tall2.position.z = -4;
-    tall2.position.y = -3;
-    tall2.position.x = -5;
-    scene.add(tall2);
-
-    var tall3 = new THREE.Mesh(tallGeometry, tallMaterial);
-    tall3.position.z = -4;
-    tall3.position.y = -3;
-    tall3.position.x = 0;
-    scene.add(tall3);
-
-    var tall4 = new THREE.Mesh(tallGeometry, tallMaterial);
-    tall4.position.z = -4;
-    tall4.position.y = -3;
-    tall4.position.x = 5;
-    scene.add(tall4);
-
-    var tall5 = new THREE.Mesh(tallGeometry, tallMaterial);
-    tall5.position.z = -4;
-    tall5.position.y = -3;
-    tall5.position.x = 10;
-    scene.add(tall5);
-
-    //
-
-    renderer = new THREE.WebGLRenderer({ 
-        antialias: true,
-        canvas: document.querySelector('#bg'),
-    });
-    renderer.setPixelRatio(window.devicePixelRatio);
-    renderer.setSize(window.innerWidth, window.innerHeight);
-    renderer.gammaOutput = true;
-    // document.body.appendChild(renderer.domElement);
-
-    var supportsDepthTextureExtension = !!renderer.extensions.get(
-        "WEBGL_depth_texture"
-    );
-
-    //
-
-    var pixelRatio = renderer.getPixelRatio();
-
-    renderTarget = new THREE.WebGLRenderTarget(
-        window.innerWidth * pixelRatio,
-        window.innerHeight * pixelRatio
-    );
-    renderTarget.texture.minFilter = THREE.NearestFilter;
-    renderTarget.texture.magFilter = THREE.NearestFilter;
-    renderTarget.texture.generateMipmaps = false;
-    renderTarget.stencilBuffer = false;
-
-    if (supportsDepthTextureExtension === true) {
-        renderTarget.depthTexture = new THREE.DepthTexture();
-        renderTarget.depthTexture.type = THREE.UnsignedShortType;
-        renderTarget.depthTexture.minFilter = THREE.NearestFilter;
-        renderTarget.depthTexture.maxFilter = THREE.NearestFilter;
-    }
-
-    depthMaterial = new THREE.MeshDepthMaterial();
-    depthMaterial.depthPacking = THREE.RGBADepthPacking;
-    depthMaterial.blending = THREE.NoBlending;
-
-    // textures
-
-    var loader = new THREE.TextureLoader();
-
-    var noiseMap = loader.load("/img/hydro/noiseTexture.jpeg");
-    var dudvMap = loader.load("/img/hydro/noiseNormal.png");
-
-    noiseMap.wrapS = noiseMap.wrapT = THREE.RepeatWrapping;
-    noiseMap.minFilter = THREE.NearestFilter;
-    noiseMap.magFilter = THREE.NearestFilter;
-    dudvMap.wrapS = dudvMap.wrapT = THREE.RepeatWrapping;
-
-    // waterfall
-
-    var waterfallUniforms = {
-        time: {
-        value: 0
-        },
-        tNoise: {
-        value: null
-        },
-        tDudv: {
-        value: null
-        },
-        topDarkColor: {
-        value: new THREE.Color(0x4e7ac6)
-        },
-        bottomDarkColor: {
-        value: new THREE.Color(0x0e75b7)
-        },
-        topLightColor: {
-        value: new THREE.Color(0xb0f7fe)
-        },
-        bottomLightColor: {
-        value: new THREE.Color(0x14c6fa)
-        },
-        foamColor: {
-        value: new THREE.Color(0xffffff)
-        }
-    };
-
-    var waterfallMaterial = new THREE.ShaderMaterial({
-        uniforms: THREE.UniformsUtils.merge([
-        THREE.UniformsLib["fog"],
-        waterfallUniforms
-        ]),
-        vertexShader: document.getElementById("vertexShaderWaterfall").textContent,
-        fragmentShader: document.getElementById("fragmentShaderWaterfall")
-        .textContent,
-        fog: true
-    });
-
-    waterfall1 = new THREE.Mesh(
-        new THREE.CylinderBufferGeometry(2.5, 2.5, 10, 16, 1, true),
-        waterfallMaterial
-    );
-    waterfall1.position.x = -7.75;
-    waterfall1.position.y = -3.1;
-    waterfall1.position.z = -6.3;
-    scene.add(waterfall1);
-
-    waterfall2 = new THREE.Mesh(
-        new THREE.CylinderBufferGeometry(2.5, 2.5, 10, 16, 1, true),
-        waterfallMaterial
-    );
-    waterfall2.position.x = -2.5;
-    waterfall2.position.y = -3.1;
-    waterfall2.position.z = -6.3;
-    scene.add(waterfall2);
-
-    waterfall3 = new THREE.Mesh(
-        new THREE.CylinderBufferGeometry(2.5, 2.5, 10, 16, 1, true),
-        waterfallMaterial
-    );
-    waterfall3.position.x = 2.75;
-    waterfall3.position.y = -3.1;
-    waterfall3.position.z = -6.3;
-    scene.add(waterfall3);
-
-    waterfall4 = new THREE.Mesh(
-        new THREE.CylinderBufferGeometry(2.5, 2.5, 10, 16, 1, true),
-        waterfallMaterial
-    );
-    waterfall4.position.x = 8;
-    waterfall4.position.y = -3.1;
-    waterfall4.position.z = -6.3;
-    scene.add(waterfall4);
-
-    waterfallMaterial.uniforms.tNoise.value = noiseMap;
-    waterfallMaterial.uniforms.tDudv.value = dudvMap;
-
-    // water
-
-    var waterUniforms = {
-        time: {
-        value: 0
-        },
-        threshold: {
-        value: 0.1
-        },
-        tDudv: {
-        value: null
-        },
-        tDepth: {
-        value: null
-        },
-        cameraNear: {
-        value: 0
-        },
-        cameraFar: {
-        value: 0
-        },
-        resolution: {
-        value: new THREE.Vector2()
-        },
-        foamColor: {
-        value: new THREE.Color(0xffffff)
-        },
-        waterColor: {
-        value: new THREE.Color(0x14c6fa)//0x14c6fa
-        }
-    };
-
-    var waterGeometry = new THREE.PlaneBufferGeometry(21, 25);
-    var waterMaterial = new THREE.ShaderMaterial({
-        defines: {
-        DEPTH_PACKING: supportsDepthTextureExtension === true ? 0 : 1,
-        ORTHOGRAPHIC_CAMERA: 0
-        },
-        uniforms: THREE.UniformsUtils.merge([
-        THREE.UniformsLib["fog"],
-        waterUniforms
-        ]),
-        vertexShader: document.getElementById("vertexShaderWater").textContent,
-        fragmentShader: document.getElementById("fragmentShaderWater").textContent,
-        fog: true
-    });
-
-    waterMaterial.uniforms.cameraNear.value = camera.near;
-    waterMaterial.uniforms.cameraFar.value = camera.far;
-    waterMaterial.uniforms.resolution.value.set(
-        window.innerWidth * pixelRatio,
-        window.innerHeight * pixelRatio
-    );
-    waterMaterial.uniforms.tDudv.value = dudvMap;
-    waterMaterial.uniforms.tDepth.value =
-        supportsDepthTextureExtension === true
-        ? renderTarget.depthTexture
-        : renderTarget.texture;
-
-    water1 = new THREE.Mesh(waterGeometry, waterMaterial);
-    water1.rotation.x = -Math.PI * 0.5;
-    water1.position.z = -16;
-    water1.position.y = 2.01;
-    scene.add(water1);
-
-    water2 = new THREE.Mesh(waterGeometry, waterMaterial);
-    water2.rotation.x = -Math.PI * 0.5;
-    water2.position.z = 8;
-    water2.position.y = -8;
-    scene.add(water2);
-
-    //made camera look downwards at water
-    camera.rotation.x = -0.75;
-    // camera.position.y = -0.25;
-
-    //
-
-    particleSystem1 = new ParticleSystem();
-    particleSystem2 = new ParticleSystem();
-    particleSystem3 = new ParticleSystem();
-    particleSystem4 = new ParticleSystem();
-
-    var particleGeometry = new THREE.SphereBufferGeometry(1.25, 16, 8);
-    particleGeometry = particleGeometry.toNonIndexed();
-    var particleMaterial = new THREE.MeshBasicMaterial({
-        color: 0xfcfcfc,
-        alphaMap: noiseMap
-    });
-
-    particleMaterial.onBeforeCompile = function (shader) {
-        shader.vertexShader =
-        "attribute float t;\nvarying float vT;\n" + shader.vertexShader;
-        shader.vertexShader = shader.vertexShader.replace(
-        "#include <begin_vertex>",
-        [
-            "vec3 transformed = vec3( position );",
-            "transformed.y += t * 0.25;",
-            "vT = t;"
-        ].join("\n")
+        var supportsDepthTextureExtension = !!renderer.extensions.get(
+            "WEBGL_depth_texture"
         );
-        shader.fragmentShader = "varying float vT;\n" + shader.fragmentShader;
-        shader.fragmentShader = shader.fragmentShader.replace(
-        "#include <alphamap_fragment>",
-        [
-            "float dissolve = abs( sin( 1.0 - vT ) ) - texture2D( alphaMap, vUv ).g;",
-            "if ( dissolve < 0.01 ) discard;"
-        ].join("\n")
+
+        //
+
+        var pixelRatio = renderer.getPixelRatio();
+
+        renderTarget = new THREE.WebGLRenderTarget(
+            window.innerWidth * pixelRatio,
+            window.innerHeight * pixelRatio
         );
-    };
+        renderTarget.texture.minFilter = THREE.NearestFilter;
+        renderTarget.texture.magFilter = THREE.NearestFilter;
+        renderTarget.texture.generateMipmaps = false;
+        renderTarget.stencilBuffer = false;
 
-    particleSystem1.init(particleGeometry, particleMaterial, 250);
-    particleSystem1._instancedMesh.position.x = -7;
-    particleSystem1._instancedMesh.position.y = -7;
-    particleSystem1._instancedMesh.position.z = -2;
-    scene.add(particleSystem1._instancedMesh);
+        if (supportsDepthTextureExtension === true) {
+            renderTarget.depthTexture = new THREE.DepthTexture();
+            renderTarget.depthTexture.type = THREE.UnsignedShortType;
+            renderTarget.depthTexture.minFilter = THREE.NearestFilter;
+            renderTarget.depthTexture.maxFilter = THREE.NearestFilter;
+        }
 
-    particleSystem2.init(particleGeometry, particleMaterial, 250);
-    particleSystem2._instancedMesh.position.x = -1.75;
-    particleSystem2._instancedMesh.position.y = -7;
-    particleSystem2._instancedMesh.position.z = -2;
-    scene.add(particleSystem2._instancedMesh);
+        depthMaterial = new THREE.MeshDepthMaterial();
+        depthMaterial.depthPacking = THREE.RGBADepthPacking;
+        depthMaterial.blending = THREE.NoBlending;
 
-    particleSystem3.init(particleGeometry, particleMaterial, 250);
-    particleSystem3._instancedMesh.position.x = 3.5;
-    particleSystem3._instancedMesh.position.y = -7;
-    particleSystem3._instancedMesh.position.z = -2;
-    scene.add(particleSystem3._instancedMesh);
-    
-    particleSystem4.init(particleGeometry, particleMaterial, 250);
-    particleSystem4._instancedMesh.position.x = 8.75;
-    particleSystem4._instancedMesh.position.y = -7;
-    particleSystem4._instancedMesh.position.z = -2;
-    scene.add(particleSystem4._instancedMesh);
+        // textures
+
+        var loader = new THREE.TextureLoader();
+
+        var noiseMap = loader.load("/img/hydro/noiseTexture.jpeg");
+        var dudvMap = loader.load("/img/hydro/noiseNormal.png");
+
+        noiseMap.wrapS = noiseMap.wrapT = THREE.RepeatWrapping;
+        noiseMap.minFilter = THREE.NearestFilter;
+        noiseMap.magFilter = THREE.NearestFilter;
+        dudvMap.wrapS = dudvMap.wrapT = THREE.RepeatWrapping;
+
+        // waterfall
+
+        var waterfallUniforms = {
+            time: {
+            value: 0
+            },
+            tNoise: {
+            value: null
+            },
+            tDudv: {
+            value: null
+            },
+            topDarkColor: {
+            value: new THREE.Color(0x4e7ac6)
+            },
+            bottomDarkColor: {
+            value: new THREE.Color(0x0e75b7)
+            },
+            topLightColor: {
+            value: new THREE.Color(0xb0f7fe)
+            },
+            bottomLightColor: {
+            value: new THREE.Color(0x14c6fa)
+            },
+            foamColor: {
+            value: new THREE.Color(0xffffff)
+            }
+        };
+
+        var waterfallMaterial = new THREE.ShaderMaterial({
+            uniforms: THREE.UniformsUtils.merge([
+            THREE.UniformsLib["fog"],
+            waterfallUniforms
+            ]),
+            vertexShader: document.getElementById("vertexShaderWaterfall").textContent,
+            fragmentShader: document.getElementById("fragmentShaderWaterfall")
+            .textContent,
+            fog: true
+        });
+
+        waterfall1 = new THREE.Mesh(
+            new THREE.CylinderBufferGeometry(2.5, 2.5, 10, 16, 1, true),
+            waterfallMaterial
+        );
+        waterfall1.position.x = -7.75;
+        waterfall1.position.y = -3.1;
+        waterfall1.position.z = -6.3;
+        scene.add(waterfall1);
+
+        waterfall2 = new THREE.Mesh(
+            new THREE.CylinderBufferGeometry(2.5, 2.5, 10, 16, 1, true),
+            waterfallMaterial
+        );
+        waterfall2.position.x = -2.5;
+        waterfall2.position.y = -3.1;
+        waterfall2.position.z = -6.3;
+        scene.add(waterfall2);
+
+        waterfall3 = new THREE.Mesh(
+            new THREE.CylinderBufferGeometry(2.5, 2.5, 10, 16, 1, true),
+            waterfallMaterial
+        );
+        waterfall3.position.x = 2.75;
+        waterfall3.position.y = -3.1;
+        waterfall3.position.z = -6.3;
+        scene.add(waterfall3);
+
+        waterfall4 = new THREE.Mesh(
+            new THREE.CylinderBufferGeometry(2.5, 2.5, 10, 16, 1, true),
+            waterfallMaterial
+        );
+        waterfall4.position.x = 8;
+        waterfall4.position.y = -3.1;
+        waterfall4.position.z = -6.3;
+        scene.add(waterfall4);
+
+        waterfallMaterial.uniforms.tNoise.value = noiseMap;
+        waterfallMaterial.uniforms.tDudv.value = dudvMap;
+
+        // water
+
+        var waterUniforms = {
+            time: {
+            value: 0
+            },
+            threshold: {
+            value: 0.1
+            },
+            tDudv: {
+            value: null
+            },
+            tDepth: {
+            value: null
+            },
+            cameraNear: {
+            value: 0
+            },
+            cameraFar: {
+            value: 0
+            },
+            resolution: {
+            value: new THREE.Vector2()
+            },
+            foamColor: {
+            value: new THREE.Color(0xffffff)
+            },
+            waterColor: {
+            value: new THREE.Color(0x14c6fa)//0x14c6fa
+            }
+        };
+
+        var waterGeometry = new THREE.PlaneBufferGeometry(21, 25);
+        var waterMaterial = new THREE.ShaderMaterial({
+            defines: {
+            DEPTH_PACKING: supportsDepthTextureExtension === true ? 0 : 1,
+            ORTHOGRAPHIC_CAMERA: 0
+            },
+            uniforms: THREE.UniformsUtils.merge([
+            THREE.UniformsLib["fog"],
+            waterUniforms
+            ]),
+            vertexShader: document.getElementById("vertexShaderWater").textContent,
+            fragmentShader: document.getElementById("fragmentShaderWater").textContent,
+            fog: true
+        });
+
+        waterMaterial.uniforms.cameraNear.value = camera.near;
+        waterMaterial.uniforms.cameraFar.value = camera.far;
+        waterMaterial.uniforms.resolution.value.set(
+            window.innerWidth * pixelRatio,
+            window.innerHeight * pixelRatio
+        );
+        waterMaterial.uniforms.tDudv.value = dudvMap;
+        waterMaterial.uniforms.tDepth.value =
+            supportsDepthTextureExtension === true
+            ? renderTarget.depthTexture
+            : renderTarget.texture;
+
+        water1 = new THREE.Mesh(waterGeometry, waterMaterial);
+        water1.rotation.x = -Math.PI * 0.5;
+        water1.position.z = -16;
+        water1.position.y = 2.01;
+        scene.add(water1);
+
+        water2 = new THREE.Mesh(waterGeometry, waterMaterial);
+        water2.rotation.x = -Math.PI * 0.5;
+        water2.position.z = 8;
+        water2.position.y = -8;
+        scene.add(water2);
 
 
+        //
 
-    //
+        particleSystem1 = new ParticleSystem();
+        particleSystem2 = new ParticleSystem();
+        particleSystem3 = new ParticleSystem();
+        particleSystem4 = new ParticleSystem();
 
-    // var controls = new OrbitControls(camera, renderer.domElement);
-    // controls.minDistance = 1;
-    // controls.maxDistance = 50;
+        var particleGeometry = new THREE.SphereBufferGeometry(1.25, 16, 8);
+        particleGeometry = particleGeometry.toNonIndexed();
+        var particleMaterial = new THREE.MeshBasicMaterial({
+            color: 0xfcfcfc,
+            alphaMap: noiseMap
+        });
 
-    //
+        particleMaterial.onBeforeCompile = function (shader) {
+            shader.vertexShader =
+            "attribute float t;\nvarying float vT;\n" + shader.vertexShader;
+            shader.vertexShader = shader.vertexShader.replace(
+            "#include <begin_vertex>",
+            [
+                "vec3 transformed = vec3( position );",
+                "transformed.y += t * 0.25;",
+                "vT = t;"
+            ].join("\n")
+            );
+            shader.fragmentShader = "varying float vT;\n" + shader.fragmentShader;
+            shader.fragmentShader = shader.fragmentShader.replace(
+            "#include <alphamap_fragment>",
+            [
+                "float dissolve = abs( sin( 1.0 - vT ) ) - texture2D( alphaMap, vUv ).g;",
+                "if ( dissolve < 0.01 ) discard;"
+            ].join("\n")
+            );
+        };
 
-    window.addEventListener("resize", onWindowResize, false);
+        particleSystem1.init(particleGeometry, particleMaterial, 250);
+        particleSystem1._instancedMesh.position.x = -7;
+        particleSystem1._instancedMesh.position.y = -7;
+        particleSystem1._instancedMesh.position.z = -2;
+        scene.add(particleSystem1._instancedMesh);
+
+        particleSystem2.init(particleGeometry, particleMaterial, 250);
+        particleSystem2._instancedMesh.position.x = -1.75;
+        particleSystem2._instancedMesh.position.y = -7;
+        particleSystem2._instancedMesh.position.z = -2;
+        scene.add(particleSystem2._instancedMesh);
+
+        particleSystem3.init(particleGeometry, particleMaterial, 250);
+        particleSystem3._instancedMesh.position.x = 3.5;
+        particleSystem3._instancedMesh.position.y = -7;
+        particleSystem3._instancedMesh.position.z = -2;
+        scene.add(particleSystem3._instancedMesh);
+        
+        particleSystem4.init(particleGeometry, particleMaterial, 250);
+        particleSystem4._instancedMesh.position.x = 8.75;
+        particleSystem4._instancedMesh.position.y = -7;
+        particleSystem4._instancedMesh.position.z = -2;
+        scene.add(particleSystem4._instancedMesh);
+
+        //
+
+        window.addEventListener("resize", onWindowResize, false);
     }
 
     function onWindowResize() {
-    camera.aspect = window.innerWidth / window.innerHeight;
-    camera.updateProjectionMatrix();
+        camera.aspect = window.innerWidth / window.innerHeight;
+        camera.updateProjectionMatrix();
 
-    renderer.setSize(window.innerWidth, window.innerHeight);
+        renderer.setSize(window.innerWidth, window.innerHeight);
 
-    var pixelRatio = renderer.getPixelRatio();
+        var pixelRatio = renderer.getPixelRatio();
 
-    renderTarget.setSize(
-        window.innerWidth * pixelRatio,
-        window.innerHeight * pixelRatio
-    );
-    water1.material.uniforms.resolution.value.set(
-        window.innerWidth * pixelRatio,
-        window.innerHeight * pixelRatio
-    );
+        renderTarget.setSize(
+            window.innerWidth * pixelRatio,
+            window.innerHeight * pixelRatio
+        );
+        water1.material.uniforms.resolution.value.set(
+            window.innerWidth * pixelRatio,
+            window.innerHeight * pixelRatio
+        );
     }
 
     function updateParticles(delta) {
@@ -462,38 +427,38 @@ onMount(() => {
 
     // update the system itself
 
-    particleSystem1.update(delta);
-    particleSystem2.update(delta);
-    particleSystem3.update(delta);
-    particleSystem4.update(delta);
+        particleSystem1.update(delta);
+        particleSystem2.update(delta);
+        particleSystem3.update(delta);
+        particleSystem4.update(delta);
     }
 
     function animate() {
-    requestAnimationFrame(animate);
+        requestAnimationFrame(animate);
 
-    // depth pass
+        // depth pass
 
-    water1.visible = false; // we don't want the depth of the water
-    scene.overrideMaterial = depthMaterial;
+        water1.visible = false; // we don't want the depth of the water
+        scene.overrideMaterial = depthMaterial;
 
-    renderer.setRenderTarget(renderTarget);
-    renderer.render(scene, camera);
-    renderer.setRenderTarget(null);
+        renderer.setRenderTarget(renderTarget);
+        renderer.render(scene, camera);
+        renderer.setRenderTarget(null);
 
-    scene.overrideMaterial = null;
-    water1.visible = true;
+        scene.overrideMaterial = null;
+        water1.visible = true;
 
-    // beauty pass
+        // beauty pass
 
-    var delta = clock.getDelta();
-    var time = clock.getElapsedTime();
+        var delta = clock.getDelta();
+        var time = clock.getElapsedTime();
 
-    waterfall1.material.uniforms.time.value = time;
-    water1.material.uniforms.time.value = time;
+        waterfall1.material.uniforms.time.value = time;
+        water1.material.uniforms.time.value = time;
 
-    updateParticles(delta);
+        updateParticles(delta);
 
-    renderer.render(scene, camera);
+        renderer.render(scene, camera);
     }
 
 
