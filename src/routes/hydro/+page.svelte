@@ -616,15 +616,136 @@ onMount(() => {
   
       <Header/>
   
-      <h1>Hydroelectric Power</h1>
+      <h1 align="center" style="color:black;">Hydroelectric Power</h1>
+
+      <div class="image-container">
+        <img src="/img/hydro/hydroTitle.jpg" alt="A Hydro Power Plant">
+        <p class="source">Photo by <a href="https://commons.wikimedia.org/wiki/File:SQK_Dam_DSC_3657.jpg">Martina Nolte</a></p>
+      </div>
     
-      <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Soluta minima, praesentium nobis necessitatibus ducimus eos inventore ab similique quod nesciunt magnam perferendis accusantium cumque odio eum excepturi explicabo quasi maxime. Assumenda corporis atque, quos tenetur a esse aliquid commodi totam repudiandae delectus eveniet et voluptates odit praesentium repellendus deserunt. Esse!</p><br><br><br><br><br>
-      <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Soluta minima, praesentium nobis necessitatibus ducimus eos inventore ab similique quod nesciunt magnam perferendis accusantium cumque odio eum excepturi explicabo quasi maxime. Assumenda corporis atque, quos tenetur a esse aliquid commodi totam repudiandae delectus eveniet et voluptates odit praesentium repellendus deserunt. Esse!</p><br><br><br><br><br>
-      <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Soluta minima, praesentium nobis necessitatibus ducimus eos inventore ab similique quod nesciunt magnam perferendis accusantium cumque odio eum excepturi explicabo quasi maxime. Assumenda corporis atque, quos tenetur a esse aliquid commodi totam repudiandae delectus eveniet et voluptates odit praesentium repellendus deserunt. Esse!</p><br><br><br><br><br>
-      <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Soluta minima, praesentium nobis necessitatibus ducimus eos inventore ab similique quod nesciunt magnam perferendis accusantium cumque odio eum excepturi explicabo quasi maxime. Assumenda corporis atque, quos tenetur a esse aliquid commodi totam repudiandae delectus eveniet et voluptates odit praesentium repellendus deserunt. Esse!</p><br><br><br><br><br>
-      <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Soluta minima, praesentium nobis necessitatibus ducimus eos inventore ab similique quod nesciunt magnam perferendis accusantium cumque odio eum excepturi explicabo quasi maxime. Assumenda corporis atque, quos tenetur a esse aliquid commodi totam repudiandae delectus eveniet et voluptates odit praesentium repellendus deserunt. Esse!</p><br><br><br><br><br>
-      <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Soluta minima, praesentium nobis necessitatibus ducimus eos inventore ab similique quod nesciunt magnam perferendis accusantium cumque odio eum excepturi explicabo quasi maxime. Assumenda corporis atque, quos tenetur a esse aliquid commodi totam repudiandae delectus eveniet et voluptates odit praesentium repellendus deserunt. Esse!</p><br><br><br><br><br>
-    
+      <p>
+        <b>
+          <u>
+            What is Hydroelectric Energy?
+          </u>
+        </b>
+  
+        <br>
+  
+        &emsp; &emsp; Hydropower is one of the oldest sources of energy for producing mechanical and electrical energy, and up until 2019, it was the largest source of total annual U.S. renewable electricity generation. Hydroelectric power is produced by moving water. Thus, hydroelectric power plants are usually located on or near a water source. The volume of water flow and the change in elevation of the fall, also referred to as the head, from one point to another determines the amount of available energy in moving water. The greater the water flow, the more electricity a hydropower plant can produce. At a hydropower plant, water flows through a penstock pipe that pushes against and turns blades in a turbine to spin a generator to produce electricity.
+
+      </p>
+
+      <div class="image-container">
+        <img src="/img/hydro/hydroelectricpowersystem.gif" alt="A diagram of a hydroelectric power system">
+        <p class="source">Photo by <a href="/404">Somebody</a></p>
+      </div>
+
+      <p>
+        <b>
+          <u>
+            Conventional hydroelectric facilities include
+          </u>
+        </b>
+  
+        <br>
+  
+        &emsp; &emsp; Run of the river system, where the force of the river's current applies pressure on a turbine. Storage systems is where water accumulates in the reservoir created by dams on streams and rivers and is released through hydro turbines as needed to generate electricity. Most U.S. hydropower facilities have dams and storage reservoirs. 
+
+      </p>
+
+      <p>
+        <b>
+          <u>
+            Benefits of using hydropower:
+          </u>
+        </b>
+  
+        <br>
+  
+        &emsp; &emsp; Hydropower dams can’t be built anywhere because these plants need a consistent water supply and a large amount of land. Many countries have this, but some countries don’t have these resources. Poorly planned hydropower can have many problems for the climate. Hydropower generators are important contributors to grid reliability. Even in a changing power system, hydropower significantly contributes to system reliability through inertial and primary frequency responses, reactive power support, and black-start capabilities. 40% of units maintained and tested for providing black start in the US are hydropower turbines, even though hydropower currently only makes up approximately 10% of overall US generating capacity. Hydropower resources have been observed to contribute up to 25% of the total Regulation Reserve (up and down) requirements and up to 60% of the total Spinning Reserve requirements, even though hydropower constitutes approximately 15% of installed capacity.
+        <br>
+  
+        <br>
+        
+        <u>•Environmental benefits:</u>
+        <br>
+        &emsp; -Since hydropower is fuelled by water, it can lead to a decrease in carbon emissions. 
+
+        <br>
+        <br>
+        
+        <u>•Economical benefits:</u>
+        <br>
+        &emsp; -The most important advantage of hydropower, in contrast to other energy sources, is that it can be dispatched quickly at any time, enabling utilities to balance load variations on the electric distribution system.  
+
+        <br>
+        <br>
+        
+      </p>
+
+      <p>
+        <b>
+          <u>
+            Limitations and Shortcomings:
+          </u>
+        </b>
+  
+        <br>
+  
+        <br>
+        
+        <u>•Sustainability of hydropower:</u>
+        <br>
+        &emsp; -The biggest and most important challenge that is faced with the sustainability of the hydro plants which are used in the production of hydropower is to cope with the reservoir sedimentation and the loss of storage mainly contributed by uncontrolled deforestation, poor agricultural land management, residential development and infrastructure developments within the vicinity of this area. Sedimentation can result in the loss of live storage, which as a result, will affect the revenue from power generation output. This can also result in the loss of energy production. This can lead to an increase in the risk of flooding downstream through controlled spilling. This can lead to an increased maintenance cost by frequent dredging, excavation, and disposal of sediments. Reservoirs considerably filled with sediments threaten environmental disasters if a dam fails. 
+
+        <br>
+        <br>
+        
+        <u>•Impact from Climate Change:</u>
+        <br>
+        &emsp; -Hydropower development in developing countries like the US seems to overlook climate change scenarios. Some dams in developed countries, like Hoover Dam, are already putting new turbines at a lower elevation to prepare for projected water shortages in the Colorado River due to climate change. Lake Mead, the water storage for the Hoover Dam, has seen a 40% decline in its water level; thus, its peak power output has decreased from 2 to 1.5 GW. Improvements have also been made in several dams through the relicensing process that mandates improvements in river flows, facilitating fish migrations and enhancing dissolved oxygen levels in the water. 
+        <br>
+        &emsp; -According to a recent US Energy Information Administration Outlook, the vast majority of the world’s newly installed renewable energy over the next 25 years will come from hydroelectric dams, mostly in the developing world. Even though this is the case, climate change impacts have begun but are not addressed by dam builders.  
+
+        <br>
+        <br>
+
+        <u>•Negative effects on the environment:</u>
+        <br>
+        &emsp; -Dam builders frequently fail to consider the effects of land use change on the hydropower potential of a dam. Regional deforestation can sufficiently inhibit rainfall and soil moisture in tropical moist forest regions to constrain energy generation.
+        <br>
+        &emsp; -Hydro plants need large reservoirs to provide a steady stream of water, so when these reservoirs are built, plants and other organic matter get flooded. This material decays over time, releasing greenhouse gases like carbon dioxide and methane, thus affecting life near these reservoirs. 
+
+        <br>
+        <br>
+
+        <u>•Shortcomings:</u>
+        <br>
+        &emsp; -The seasonal variations in water availability from year to year and the prevailing water management practices due to environmental and other conditions can indicate huge variations in the amount of energy produced and other essential reliability services by hydropower resources.
+
+        <br>
+        <br>
+        
+      </p>
+
+      <p>
+        <b>
+          <u>
+            Conclusion:
+          </u>
+        </b>
+  
+        <br>
+        
+        &emsp; &emsp; Hydropower is one of the oldest sources of energy production because hydroelectric power is produced by moving water. Hydropower has many benefits such as the fact that it can decrease carbon emissions since it’s driven by water. The production of hydroelectric power also poses many limitations, such as the need for a constant supply of water, meaning that hydropower dams are limited to reservoirs and large rivers. Hydropower dams also require a large amount of land, making it even harder to find suitable locations for them. Hydro plants can also be hard to sustain because of reservoir sedimentation and storage loss due to deforestation. Hydropower has many benefits and few limitations, making it one of the largest sources of annual U.S. electrical energy.
+
+        <br>
+        <br>
+        <br>
+      
+      </p>
+
     </div>
   
   
@@ -634,28 +755,39 @@ onMount(() => {
 
 <style>
   
-    canvas {
-      position: fixed;
-      top: 0;
-      left: 0;
-    }
+  img {
+    width: 50%;
+    /* center img using margin */
+    margin-left: 17vw;
+  }
+
+  canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+  }
+
+
+  main {
+    width: 100vw;
+    color: black;
+    z-index: 99;
+    position: absolute;
+    width: 100%;
     
-    
-    main {
-      width: 100vw;
-      color: black;
-      z-index: 99;
-      position: absolute;
-      width: 100%;
-      
-    
-      opacity: 1;
-    }
-    
-    .main-container {
-      background-color: rgb(187, 187, 187, 0.5);
-      margin: 7.5vw auto 7.5vw auto;
-      width: 70vw;
-    }
+
+    opacity: 1;
+  }
+
+  .main-container {
+    background-color: rgb(187, 187, 187, 0.75);
+    margin: 7.5vw auto 7.5vw auto;
+    width: 70vw;
+  }
+
+  p {
+    font-size: 1.5vw;
+    margin: 2vw;
+  }
     
 </style>

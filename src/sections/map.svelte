@@ -449,15 +449,6 @@
             } 
             
             let percent = val/max;
-            // if (percent < 0.25) {
-            //     fill = "#ff0000";
-            // } else if (percent < 0.5) {
-            //     fill = "#ff8000";
-            // } else if (percent < 0.75) {
-            //     fill = "#ffff00";
-            // } else {
-            //     fill = "#00ff00";
-            // }
             //make the colors a gradient based off of the percentage. 
             //the color can be represented as an rgb value
             fill = "rgb("+(255*percent)+",0,"+(255*(1-percent))+")";
