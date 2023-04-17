@@ -638,7 +638,7 @@ onMount(() => {
 
       <div class="image-container">
         <img src="/img/hydro/hydroelectricpowersystem.gif" alt="A diagram of a hydroelectric power system">
-        <p class="source">Photo by <a href="/404">Somebody</a></p>
+        <p class="source">Diagram by <a href="https://www.pinterest.com/pin/332281278737640156/">Topper Learning</a></p>
       </div>
 
       <p>
@@ -663,7 +663,7 @@ onMount(() => {
   
         <br>
   
-        &emsp; &emsp; Hydropower dams can’t be built anywhere because these plants need a consistent water supply and a large amount of land. Many countries have this, but some countries don’t have these resources. Poorly planned hydropower can have many problems for the climate. Hydropower generators are important contributors to grid reliability. Even in a changing power system, hydropower significantly contributes to system reliability through inertial and primary frequency responses, reactive power support, and black-start capabilities. 40% of units maintained and tested for providing black start in the US are hydropower turbines, even though hydropower currently only makes up approximately 10% of overall US generating capacity. Hydropower resources have been observed to contribute up to 25% of the total Regulation Reserve (up and down) requirements and up to 60% of the total Spinning Reserve requirements, even though hydropower constitutes approximately 15% of installed capacity.
+        &emsp; &emsp; Hydropower dams can't be built anywhere because these plants need a consistent water supply and a large amount of land. Many countries have this, but some countries don’t have these resources. Poorly planned hydropower can have many problems for the climate. Hydropower generators are important contributors to grid reliability. Even in a changing power system, hydropower significantly contributes to system reliability through inertial and primary frequency responses, reactive power support, and black-start capabilities. 40% of units maintained and tested for providing black start in the US are hydropower turbines, even though hydropower currently only makes up approximately 10% of overall US generating capacity. Hydropower resources have been observed to contribute up to 25% of the total Regulation Reserve (up and down) requirements and up to 60% of the total Spinning Reserve requirements, even though hydropower constitutes approximately 15% of installed capacity.
         <br>
   
         <br>
