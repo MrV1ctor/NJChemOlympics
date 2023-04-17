@@ -100,8 +100,12 @@ onMount(() => {
       scene.add(cube);
 
       //add panels
-      const geometry2 = new THREE.BoxGeometry(7.5, 1, 5);
-      const material2 = new THREE.MeshStandardMaterial({ color: 0x0000ff });
+      const geometry2 = new THREE.BoxGeometry(7.5, 0.1, 5);
+      const material2 = new THREE.MeshStandardMaterial({ 
+        map: new THREE.TextureLoader().load('/img/solar/panel1.png'),
+        normalMap: new THREE.TextureLoader().load('/img/solar/NormalMap.png'),
+        normalScale: new THREE.Vector2(0.3, 0.3)
+      });
       const panel = new THREE.Mesh(geometry2, material2);
       panel.position.set(x, y+2.5, z);
       scene.add(panel);
@@ -121,8 +125,12 @@ onMount(() => {
       scene.add(cube);
 
       //add panels
-      const geometry2 = new THREE.BoxGeometry(7.5, 1, 5);
-      const material2 = new THREE.MeshStandardMaterial({ color: 0x0000ff });
+      const geometry2 = new THREE.BoxGeometry(7.5, 0.1, 5);
+      const material2 = new THREE.MeshStandardMaterial({ 
+        map: new THREE.TextureLoader().load('/img/solar/panel1.png'),
+        normalMap: new THREE.TextureLoader().load('/img/solar/NormalMap.png'),
+        normalScale: new THREE.Vector2(0.3, 0.3)
+      });
       const panel = new THREE.Mesh(geometry2, material2);
       panel.position.set(x, y+2.5, z);
       scene.add(panel);
