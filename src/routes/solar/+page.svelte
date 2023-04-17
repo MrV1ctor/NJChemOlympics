@@ -8,6 +8,7 @@ import { OBJLoader } from 'three/examples/jsm/loaders/OBJLoader'
 import { Lensflare, LensflareElement } from 'three/examples/jsm/objects/Lensflare.js';
 
 import { onMount } from 'svelte';
+    import { compute_rest_props } from 'svelte/internal';
 onMount(() => {
 
     // IMPORTS
@@ -52,7 +53,7 @@ onMount(() => {
     scene.add(ambientLight);
 
     //add a directional light
-    const directionalLight = new THREE.DirectionalLight(0xffffff, 55);
+    const directionalLight = new THREE.DirectionalLight(0xffffff, 10);
     directionalLight.position.set(0, 1, 0);
     scene.add(directionalLight);
 
@@ -138,16 +139,18 @@ onMount(() => {
       
     }
 
+    let groundColor = new THREE.Color(0xffbc2b);
+
     //add a large platform underneath all the cubes
     const geometry = new THREE.BoxGeometry(1000, 1, 1000);
-    const material = new THREE.MeshBasicMaterial({ color: 0xffbc2b });
+    const material = new THREE.MeshBasicMaterial({ color: groundColor });
     const platform = new THREE.Mesh(geometry, material);
     platform.position.set(0, -100, 0);
     scene.add(platform);
 
     //add a wall at the end of the platform
     const geometry2 = new THREE.BoxGeometry(2000, 210, 1);
-    const material2 = new THREE.MeshBasicMaterial({ color: 0xffbc2b });
+    const material2 = new THREE.MeshBasicMaterial({ color: groundColor });
     const wall = new THREE.Mesh(geometry2, material2);
     wall.position.set(0, -75, -450);
     scene.add(wall);
@@ -215,6 +218,20 @@ onMount(() => {
         sun.position.set(x*sun_x_dist, sun_min_height+(-Math.abs(x)/dist)*sun_y_dist, sun.position.z);
 
         flare_light.position.set(x*sun_x_dist, sun_min_height+(-Math.abs(x)/dist)*sun_y_dist, sun.position.z+(sun_radius+10));
+
+
+
+        let maxAmb = 3;
+        let minAmb = 0.1;
+        let percent = 1-Math.abs(x)/dist;
+        let amb = minAmb+percent*(maxAmb-minAmb);
+        ambientLight.intensity = amb;
+        directionalLight.intensity = amb;
+        scene.background = new THREE.Color('hsl(208, 100%, '+percent*60+'%)');
+        platform.material.color = new THREE.Color('hsl(39, 100%, '+percent*60+'%)');
+        wall.material.color = new THREE.Color('hsl(39, 100%, '+percent*60+'%)');
+        // console.log(amb);
+        // console.log(perc);
 
         // console.log(x/dist)
 
