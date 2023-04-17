@@ -85,29 +85,49 @@ onMount(() => {
     camera.position.y += 5;
     camera.position.z += 5;
     
+
+    let panels = [];
     //create a grid of cubes to the left of the camera, and a grid of cubes to the right of the camera
     for (let i = 0; i < 25; i++) {
-      const geometry = new THREE.BoxGeometry(5, 5, 5);
+      const geometry = new THREE.BoxGeometry(1, 2, 1);
       const material = new THREE.MeshStandardMaterial({ color: 0x0000ff });
       const cube = new THREE.Mesh(geometry, material);
     
       //make the cubes line up in a grid with the same y value but different x and z values of where in the grid they are
       const [x, y, z] = [10+(10*i)%(5*10), -10, -10*Math.floor(i/5)];
     
-      cube.position.set(x, y, z);
+      cube.position.set(x, y-2, z);
       scene.add(cube);
+
+      //add panels
+      const geometry2 = new THREE.BoxGeometry(7.5, 1, 5);
+      const material2 = new THREE.MeshStandardMaterial({ color: 0x0000ff });
+      const panel = new THREE.Mesh(geometry2, material2);
+      panel.position.set(x, y+2.5, z);
+      scene.add(panel);
+      panels.push(panel);
+
     }
     
     for (let i = 0; i < 25; i++) {
-      const geometry = new THREE.BoxGeometry(5, 5, 5);
+      const geometry = new THREE.BoxGeometry(1, 2, 1);
       const material = new THREE.MeshStandardMaterial({ color: 0x0000ff });
       const cube = new THREE.Mesh(geometry, material);
     
       //make the cubes line up in a grid with the same y value but different x and z values of where in the grid they are
       const [x, y, z] = [-50+(10*i)%(5*10), -10, -10*Math.floor(i/5)];
     
-      cube.position.set(x, y, z);
+      cube.position.set(x, y-2, z);
       scene.add(cube);
+
+      //add panels
+      const geometry2 = new THREE.BoxGeometry(7.5, 1, 5);
+      const material2 = new THREE.MeshStandardMaterial({ color: 0x0000ff });
+      const panel = new THREE.Mesh(geometry2, material2);
+      panel.position.set(x, y+2.5, z);
+      scene.add(panel);
+      panels.push(panel);
+      
     }
 
     //add a large platform underneath all the cubes
@@ -216,6 +236,12 @@ onMount(() => {
     
     
       controls.update();
+
+      for (let i = 0; i < panels.length; i++) {
+        panels[i].lookAt(sun.position);
+        panels[i].rotation.z = 1.5;
+        panels[i].rotation.y += 1.5;
+      }
     
     
     
