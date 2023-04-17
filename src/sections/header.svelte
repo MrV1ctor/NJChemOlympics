@@ -36,14 +36,6 @@
         width: auto;
     }
 
-    .header-gradient {
-        min-width: 100vw;
-        height: 1rem;
-
-        background-color: #fff;
-        background: linear-gradient(90deg, var(--main-1) 0%, var(--main-2) 35%, var(--main-4) 100%);
-    }
-
     .button {
         min-width: 10rem;
         width: auto;
