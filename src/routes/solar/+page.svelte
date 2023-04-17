@@ -600,54 +600,14 @@ main {
   }
 
   img {
-      width: 50%;
-      /* center img using margin */
-      margin-left: 17vw;
-    }
+    width: 50%;
+    /* center img using margin */
+    margin-left: 17vw;
+  }
 
   p {
     margin: 2vw;
-  }
-
-  
-  .accordion {
-    background-color: rgba(0, 0, 0, 0.3);
-    color: #fff;
-    cursor: pointer;
-    padding: 18px;
-    width: 100%;
-    border: none;
-    text-align: left;
-    outline: none;
-    font-size: 15px;
-    transition: 0.4s;
-  }
-
-  :global(.active, .accordion:hover) {
-    background-color: rgba(0, 0, 0, 0.5);
-  }
-
-  .accordion-text {
-    color: #fff;
-    font-size: 1.5rem !important;
-    padding: 0 18px;
-    background-color: rgba(0, 0, 0, 0.3);
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.2s ease-out;
-  }
-
-  .accordion-text p {
-    font-size: 1.5rem;
-    margin: 2vw;
-  }
-
-  .accordion-text a {
-    color: rgb(255, 255, 0)
-  }
-  
-  p {
     font-size: 1.5vw;
-    margin: 2vw;
   }
+
 </style>

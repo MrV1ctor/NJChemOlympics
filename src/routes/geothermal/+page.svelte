@@ -229,9 +229,19 @@
           renderer.setSize( window.innerWidth, window.innerHeight );
         
         }
-    
-    
-    });
+
+        var acc = document.getElementsByClassName("accordion");
+  
+        acc[0].addEventListener("click", function() {
+            this.classList.toggle("active");
+            var text = this.nextElementSibling;
+            if (text.style.maxHeight) {
+            text.style.maxHeight = null;
+            } else {
+            text.style.maxHeight = text.scrollHeight + "px";
+            } 
+        });
+  });
     
 </script>
     
@@ -429,6 +439,27 @@
       <br>
     
     </p>
+
+    <button class="accordion">Citations</button>
+    <div class="accordion-text">
+      <p>
+        Gunnlaugsson, E. (n.d.). Importance of Chemistry in Geothermal Exploration and Utilization. United Nations University: Geothermal Training Program. <a href="https://orkustofnun.is/gogn/unu-gtp-sc/UNU-GTP-SC-06-15.pdf">https://orkustofnun.is/gogn/unu-gtp-sc/UNU-GTP-SC-06-15.pdf</a>
+        <br> 
+        <br> 
+        Mock, J. E., Tester, J. W., & Wright, P. M. (2003). GEOTHERMAL ENERGY FROM THE EARTH: Its Potential Impact as an Environmentally Sustainable Resource. <a href="https://doi.org/10.1146/annurev.energy.22.1.305">https://doi.org/10.1146/annurev.energy.22.1.305</a>
+        <br> 
+        <br> 
+        Office of ENERGY EFFICIENCY & RENEWABLE ENERGY. (n.d.). Electricity Generation. Department of Energy. Retrieved April 16, 2023, from <a href="https://www.energy.gov/eere/geothermal/electricity-generation">https://www.energy.gov/eere/geothermal/electricity-generation</a>
+        <br> 
+        <br> 
+        Office of ENERGY EFFICIENCY & RENEWABLE ENERGY. (n.d.). Geothermal Basics. Department of Energy. Retrieved April 16, 2023, from <a href="https://www.energy.gov/eere/geothermal/geothermal-basics">https://www.energy.gov/eere/geothermal/geothermal-basics</a>
+        <br> 
+        <br> 
+        TWI. (n.d.). What are the Advantages and Disadvantages of Geothermal Energy? TWI Global. Retrieved April 16, 2023, from <a href="https://www.twi-global.com/technical-knowledge/faqs/geothermal-energy/pros-and-cons#WhataretheDisadvantagesofGeothermalEnergy">https://www.twi-global.com/technical-knowledge/faqs/geothermal-energy/pros-and-cons#WhataretheDisadvantagesofGeothermalEnergy</a>
+        <br> 
+        <br> 
+      </p>
+    </div>
 
   </div>    
 
