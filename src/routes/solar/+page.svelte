@@ -238,7 +238,19 @@ onMount(() => {
     
     }
 
-
+    
+    var acc = document.getElementsByClassName("accordion");
+  
+    acc[0].addEventListener("click", function() {
+        this.classList.toggle("active");
+        var text = this.nextElementSibling;
+        if (text.style.maxHeight) {
+        text.style.maxHeight = null;
+        } else {
+        text.style.maxHeight = text.scrollHeight + "px";
+        } 
+    
+  });
 });
 
 </script>
@@ -266,8 +278,11 @@ onMount(() => {
       </b>
 
       <br>
-
+      
       &emsp; &emsp; Solar power is any source of power that uses the sun to generate electricity. We are able to capture solar energy because the sun gives off photons due to a complicated process called nuclear fusion, occuring when “protons of hydrogen atoms violently collide in the sun’s core and fuse to create a helium atom.” This process gives off a lot of energy, including the photons we need to generate electricity.
+      
+      <br>
+      <br>
  
       <b>
         <u>
@@ -489,8 +504,49 @@ onMount(() => {
       
       <br> 
       <br> 
-    
+      
     </p>
+    
+    <button class="accordion">Citations</button>
+    <div class="accordion-text">
+      <p>
+        Averett, N. (2016, July 25). Advantages of Solar Energy: Study Finds Solar Power Lowers Cost of Energy for All Ratepayers and Causes Greater Reduction in Greenhouse Gases | The Brink. Boston University. Retrieved April 15, 2023, from <a href="https://www.bu.edu/articles/2016/solar-energy-advantages/">https://www.bu.edu/articles/2016/solar-energy-advantages/</a>
+        <br> 
+        <br> 
+        EIA. (2022, March 17). Solar explained Photovoltaics and electricity. EIA. Retrieved April 15, 2023, from <a href="https://www.eia.gov/energyexplained/solar/photovoltaics-and-electricity.php">https://www.eia.gov/energyexplained/solar/photovoltaics-and-electricity.php</a>
+        <br> 
+        <br> 
+        Energy Education. (n.d.). Conduction band. Energy Education. Retrieved April 15, 2023, from <a href="https://energyeducation.ca/encyclopedia/Conduction_band">https://energyeducation.ca/encyclopedia/Conduction_band</a>
+        <br> 
+        <br> 
+        Johnston, M. (2022, August 5). Solar Energy: Benefits and Drawbacks. Investopedia. Retrieved April 16, 2023, from <a href="https://www.investopedia.com/articles/investing/053015/pros-and-cons-solar-energy.asp">https://www.investopedia.com/articles/investing/053015/pros-and-cons-solar-energy.asp</a>
+        <br> 
+        <br> 
+        Maka, A. O. M., & Alabid, J. M. (2022, June 11). Solar energy technology and its roles in sustainable development. Clean Energy, 6(3), 476-483. <a href="https://doi.org/10.1093/ce/zkac023">https://doi.org/10.1093/ce/zkac023</a>
+        <br> 
+        <br> 
+        NREL: National Renewable Energy Laboratory. (n.d.). Concentrating Solar Power Basics. NREL. Retrieved April 16, 2023, from <a href="https://www.nrel.gov/research/re-csp.html">https://www.nrel.gov/research/re-csp.html</a>
+        <br> 
+        <br> 
+        Office of Energy Efficiency & Renewable Energy. (n.d.). Concentrating Solar-Thermal Power Basics. Department of Energy. Retrieved April 16, 2023, from <a href="https://www.energy.gov/eere/solar/concentrating-solar-thermal-power-basics">https://www.energy.gov/eere/solar/concentrating-solar-thermal-power-basics</a>
+        <br> 
+        <br> 
+        Office of Energy Efficiency & Renewable Energy. (n.d.). Solar Photovoltaic Cell Basics. Department of Energy. Retrieved April 15, 2023, from <a href="https://www.energy.gov/eere/solar/solar-photovoltaic-cell-basics">https://www.energy.gov/eere/solar/solar-photovoltaic-cell-basics</a>
+        <br> 
+        <br> 
+        Photovoltaic cell. (n.d.). Energy Education. Retrieved April 15, 2023, from <a href="https://energyeducation.ca/encyclopedia/Photovoltaic_cell">https://energyeducation.ca/encyclopedia/Photovoltaic_cell</a>
+        <br> 
+        <br> 
+        Toshiba. (n.d.). p-type Semiconductor. Toshiba Electronic Devices & Storage Corporation. Retrieved April 15, 2023, from <a href="https://toshiba.semicon-storage.com/us/semiconductor/knowledge/e-learning/discrete/chap1/chap1-4.html">https://toshiba.semicon-storage.com/us/semiconductor/knowledge/e-learning/discrete/chap1/chap1-4.html</a>
+        <br> 
+        <br> 
+        Toshiba. (n.d.). Semiconductor. Toshiba Electronic Devices & Storage Corporation. Retrieved April 15, 2023, from <a href="https://toshiba.semicon-storage.com/us/semiconductor.html">https://toshiba.semicon-storage.com/us/semiconductor.html</a>
+        <br> 
+        <br> 
+
+        </p>
+    </div>
+
   </div>
 
 </main>
@@ -528,8 +584,39 @@ main {
     }
 
   p {
-    font-size: 1.5vw;
     margin: 2vw;
+  }
+
+  
+  .accordion {
+    background-color: rgba(0, 0, 0, 0.3);
+    color: #fff;
+    cursor: pointer;
+    padding: 18px;
+    width: 100%;
+    border: none;
+    text-align: left;
+    outline: none;
+    font-size: 15px;
+    transition: 0.4s;
+  }
+
+  :global(.active, .accordion:hover) {
+    background-color: rgba(0, 0, 0, 0.5);
+  }
+
+  .accordion-text {
+    color: #fff;
+    font-size: 1.5rem !important;
+    padding: 0 18px;
+    background-color: rgba(0, 0, 0, 0.3);
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.2s ease-out;
+  }
+
+  .accordion-text a {
+    color: rgb(255, 255, 0)
   }
 
 </style>
