@@ -312,7 +312,7 @@
     }
 
     .section, .intro {
-        margin: 1rem 3rem 1rem 3rem;
+        margin: 3rem 3rem 2rem 3rem;
     }
 
 
@@ -329,7 +329,7 @@
     }
     
     .intro {
-        width: 40%;
+        width: 65%;
         text-align: left;
     }
 
