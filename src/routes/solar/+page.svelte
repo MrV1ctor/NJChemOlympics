@@ -529,7 +529,7 @@ onMount(() => {
 
     <!-- Anything accordion related including styling & scripting were made by w3schools.com at https://www.w3schools.com/howto/howto_js_accordion.asp -->
     
-    <button class="accordion">Citations</button>
+    <button class="accordion"><p class="accordion-title">Citations</p> <p class="accordion-tip">Click to reveal!</p></button>
     <div class="accordion-text">
       <p>
         Averett, N. (2016, July 25). Advantages of Solar Energy: Study Finds Solar Power Lowers Cost of Energy for All Ratepayers and Causes Greater Reduction in Greenhouse Gases | The Brink. Boston University. Retrieved April 15, 2023, from <a href="https://www.bu.edu/articles/2016/solar-energy-advantages/">https://www.bu.edu/articles/2016/solar-energy-advantages/</a>

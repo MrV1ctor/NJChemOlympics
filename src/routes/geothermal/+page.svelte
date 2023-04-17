@@ -440,7 +440,7 @@
     
     </p>
 
-    <button class="accordion">Citations</button>
+    <button class="accordion"><p class="accordion-title">Citations</p> <p class="accordion-tip">Click to reveal!</p></button>
     <div class="accordion-text">
       <p>
         Gunnlaugsson, E. (n.d.). Importance of Chemistry in Geothermal Exploration and Utilization. United Nations University: Geothermal Training Program. <a href="https://orkustofnun.is/gogn/unu-gtp-sc/UNU-GTP-SC-06-15.pdf">https://orkustofnun.is/gogn/unu-gtp-sc/UNU-GTP-SC-06-15.pdf</a>

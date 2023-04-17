@@ -257,7 +257,7 @@
 
         <Map/>
 
-        <button class="accordion">Citations</button>
+        <button class="accordion"><p class="accordion-title">Citations</p> <p class="accordion-tip">Click to reveal!</p></button>
         <div class="accordion-text">
           <p>
             EIA. (n.d.). Frequently Asked Questions (FAQs) - U.S. Energy Information Administration. Frequently Asked Questions (FAQs) - U.S. Energy Information Administration (EIA). Retrieved April 15, 2023, from <a href="https://www.eia.gov/tools/faqs/faq.php?id=85&t=1">https://www.eia.gov/tools/faqs/faq.php?id=85&t=1</a>
@@ -308,7 +308,7 @@
     }
 
     .spacer {
-        min-height: 6rem;
+        min-height: 8rem;
     }
 
     .section, .intro {
@@ -330,35 +330,36 @@
     
     .intro {
         width: 40%;
+        text-align: left;
     }
 
     .intro p {
-        text-align: left;
+        font-size: 2rem;
     }
 
     .geo-sect {
         background-image: url('/img/geo/rockbanner.png');
+        border: 0.5rem solid var(--geo-2);
     }
     
     .hydro-sect {
         background-image: url('/img/hydro/waterbanner.png');
+        border: 0.5rem solid var(--hydro-3);
     }
     
     .solar-sect {
         background-image: url('/img/solar/sunbanner.png');
+        border: 0.5rem solid var(--solar-2);
     }
 
     .section {
+        border-radius: 2rem;
         background-size: cover;
+        color: #000;
     }
 
     .section p {
         font-size: 5.5rem;
         text-align: center;
     }
-
-    .section {
-        color: #000;
-    }
-
 </style>

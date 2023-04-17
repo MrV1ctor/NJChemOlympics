@@ -758,7 +758,7 @@ onMount(() => {
       
       </p>
 
-      <button class="accordion">Citations</button>
+      <button class="accordion"><p class="accordion-title">Citations</p> <p class="accordion-tip">Click to reveal!</p></button>
       <div class="accordion-text">
         <p>
           EIA. (2022, March 16). Hydropower explained - U.S. Energy Information Administration. EIA. Retrieved April 16, 2023, from <a href="https://www.eia.gov/energyexplained/hydropower/">https://www.eia.gov/energyexplained/hydropower/</a>

@@ -463,6 +463,7 @@
 <main>
 
 
+    <p class="buttonText">Click each button to change the map!</p>
     <div class="buttons">
         <button	class="netEnergy" class:selected="{selectedStat === 0}"
         on:click="{() => {selectedStat = 0; title = "Net Energy Generation (MWh)"}}">
@@ -869,6 +870,11 @@
         /* padding-top: 5vw; */
         padding: 2rem;
     }
+
+    .buttonText {
+        text-align: center;
+        font-size: 2.5rem;
+    }
     
     .buttons button {
         min-width: 6rem;
@@ -922,7 +928,7 @@
     }
 
     .selected {
-        outline: 2px solid rgb(148, 147, 147) !important;
+        outline: 5px solid rgb(255, 255, 255) !important;
     }
 
     .map-div {
@@ -964,7 +970,6 @@
         padding: 5px 12px;
         box-shadow: 0 0 2px rgba(0,0,0,0.2);
         border-radius: 5px;
-        font-family: 'Open Sans';
         display: none;
     }
 
