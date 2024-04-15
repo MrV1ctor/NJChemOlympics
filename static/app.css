@@ -1,11 +1,11 @@
 @font-face {
-  font-family: Montserrat;
-  src: url(./Montserrat.ttf);
+  font-family: Raleway;
+  src: url(./Raleway.ttf);
 }
 
 :root {
     font-size: 10px;
-    font-family: Montserrat, Avenir, Arial;
+    font-family: Raleway, Avenir, Arial;
     /* font-family: Arial, Geneva, Tahoma, sans-serif; */
 
     --main-1: #1a6706;
@@ -27,7 +27,7 @@
 }
 
 * {
-  font-family: Montserrat, Avenir, Arial;
+  font-family: Raleway, Avenir, Arial;
 }
 
 body {

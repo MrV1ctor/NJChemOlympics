@@ -31,7 +31,7 @@ onMount(() => {
 
     renderer.setSize( width, height );
 
-    scene.background = new THREE.Color(0x0094d4);
+    scene.background = new THREE.Color(0x00FFFF);
 
     
     // renderer.setSize( window.innerWidth, window.innerHeight );
@@ -90,15 +90,15 @@ onMount(() => {
     let panels = [];
     //create a grid of cubes to the left of the camera, and a grid of cubes to the right of the camera
     for (let i = 0; i < 25; i++) {
-      const geometry = new THREE.BoxGeometry(1, 2, 1);
-      const material = new THREE.MeshStandardMaterial({ color: 0x0000ff });
-      const cube = new THREE.Mesh(geometry, material);
+      const geometry = new THREE.CylinderGeometry(1, 1, 2, 10);
+      const material = new THREE.MeshStandardMaterial({ color: 0x222222 });
+      const cyl = new THREE.Mesh(geometry, material);
     
       //make the cubes line up in a grid with the same y value but different x and z values of where in the grid they are
       const [x, y, z] = [10+(10*i)%(5*10), -10, -10*Math.floor(i/5)];
     
-      cube.position.set(x, y-2, z);
-      scene.add(cube);
+      cyl.position.set(x, y-2, z);
+      scene.add(cyl);
 
       //add panels
       const geometry2 = new THREE.BoxGeometry(7.5, 0.1, 5);
@@ -115,15 +115,15 @@ onMount(() => {
     }
     
     for (let i = 0; i < 25; i++) {
-      const geometry = new THREE.BoxGeometry(1, 2, 1);
-      const material = new THREE.MeshStandardMaterial({ color: 0x0000ff });
-      const cube = new THREE.Mesh(geometry, material);
+      const geometry = new THREE.CylinderGeometry(1, 1, 2, 10);
+      const material = new THREE.MeshStandardMaterial({ color: 0x222222 });
+      const cyl = new THREE.Mesh(geometry, material);
     
       //make the cubes line up in a grid with the same y value but different x and z values of where in the grid they are
       const [x, y, z] = [-50+(10*i)%(5*10), -10, -10*Math.floor(i/5)];
     
-      cube.position.set(x, y-2, z);
-      scene.add(cube);
+      cyl.position.set(x, y-2, z);
+      scene.add(cyl);
 
       //add panels
       const geometry2 = new THREE.BoxGeometry(7.5, 0.1, 5);
@@ -139,7 +139,7 @@ onMount(() => {
       
     }
 
-    let groundColor = new THREE.Color(0xffbc2b);
+    let groundColor = new THREE.Color(0xf7d679);
 
     //add a large platform underneath all the cubes
     const geometry = new THREE.BoxGeometry(1000, 1, 1000);
@@ -227,7 +227,7 @@ onMount(() => {
         let amb = minAmb+percent*(maxAmb-minAmb);
         ambientLight.intensity = amb;
         directionalLight.intensity = amb;
-        scene.background = new THREE.Color('hsl(208, 100%, '+percent*60+'%)');
+        scene.background = new THREE.Color('hsl(220, 75%, '+percent*60+'%)');
         platform.material.color = new THREE.Color('hsl(39, 100%, '+percent*60+'%)');
         wall.material.color = new THREE.Color('hsl(39, 100%, '+percent*60+'%)');
         // console.log(amb);

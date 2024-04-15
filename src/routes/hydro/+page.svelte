@@ -65,7 +65,7 @@ onMount(() => {
         scene.add(wall);
 
         //add 4 tall sections coming out of the wall
-        var tallGeometry = new THREE.BoxBufferGeometry(1, 10, 1);
+        var tallGeometry = new THREE.BoxBufferGeometry(1, 11, 1);
         var tallMaterial = new THREE.MeshLambertMaterial({ color: 0x6b6868 });
         var tall1 = new THREE.Mesh(tallGeometry, tallMaterial);
         tall1.position.z = -4;
@@ -454,7 +454,7 @@ onMount(() => {
         var time = clock.getElapsedTime();
 
         waterfall1.material.uniforms.time.value = time;
-        water1.material.uniforms.time.value = time;
+        water1.material.uniforms.time.value = -time;
 
         updateParticles(delta);
 
