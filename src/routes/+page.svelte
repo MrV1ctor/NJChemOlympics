@@ -213,7 +213,7 @@
           controls.update();
 
             var delta = clock.getDelta();
-            wall2.material.uniforms.iTime.value = clock.getElapsedTime()/1000000.0;
+            wall2.material.uniforms.iTime.value = clock.getElapsedTime()/250000;
 
         
         
@@ -429,7 +429,7 @@
 
         // vec4 col = vec4(vec3(.003/(rm.z-0.001)), 1);//haki black lightning
         vec4 col = vec4(vec3(.003/rm.z), 1);
-        vec4 moveAmount_ = vec4(0., -0.5, 0., 0.0);//color change whatnot
+        vec4 moveAmount_ = vec4(-0.3, -0.3, -0.0, 0.0);//color change whatnot
         col += moveAmount_;
         gl_FragColor = col;
         
@@ -477,7 +477,7 @@
             },
         ]}/>
     </div>
-    <div class="landing-container">
+    <div class="landing-map-container">
         <p class="map-text">Below is a map that, when hovered, shows the details of the energy production and the number of power plants each state has for a given renewable energy source. You can also change which statistic the heatmap shows by clicking on their respective icons.</p>
         <Map/>
     
@@ -528,6 +528,15 @@
         border-radius: 1rem;
     }
 
+    .landing-map-container {
+        width: 120rem;
+        max-width: 90vw;
+        background-color: #fff;
+        padding: 5vh 2rem;
+        margin: 5vh auto;
+        border-radius: 1rem;
+    }
+
     .title {
         margin: 0;
         text-align: center;
@@ -540,11 +549,11 @@
         text-align: center;
     }
 
-    .landing-container .map-text {
+    .landing-map-container .map-text {
         font-size: 3rem;
         text-align: center;
 
-        margin: 4rem 10rem 4rem 10rem;
+        margin: 0 10rem 2rem 10rem;
     }
 
     .map-text {
