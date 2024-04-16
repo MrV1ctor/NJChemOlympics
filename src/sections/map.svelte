@@ -387,6 +387,32 @@
         }
     };
 
+    function interpolateColor(color1, color2, value) {
+    // Parse colors
+    const parseColor = (color) => {
+        return [
+            parseInt(color.substring(1, 3), 16),
+            parseInt(color.substring(3, 5), 16),
+            parseInt(color.substring(5, 7), 16)
+        ];
+    };
+
+    // Convert color to RGB
+    const rgb1 = parseColor(color1);
+    const rgb2 = parseColor(color2);
+
+    // Interpolate RGB values
+    const interpolate = (c1, c2, t) => {
+        return Math.round(c1 + (c2 - c1) * t);
+    };
+
+    const r = interpolate(rgb1[0], rgb2[0], value);
+    const g = interpolate(rgb1[1], rgb2[1], value);
+    const b = interpolate(rgb1[2], rgb2[2], value);
+
+    // Format RGB string
+    return `rgb(${r}, ${g}, ${b})`;
+}
 
     function setColors() {
         /*
@@ -445,7 +471,7 @@
             let percent = val/max;
             //make the colors a gradient based off of the percentage. 
             //the color can be represented as an rgb value
-            fill = "rgb("+(255*(1-percent))+","+(255*(percent))+",0)";
+            fill = interpolateColor("#B7FFBD", "#00A00D", percent);
             path.style.fill = fill;
         }
     
@@ -841,7 +867,7 @@
 
     .gradient {
         height: 50px;
-        background-image: linear-gradient(to right, #ff0000, #00ff00);
+        background-image: linear-gradient(to right, #B7FFBD, #00A00D);
     }
 
     /* .map-div {
