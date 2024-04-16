@@ -330,10 +330,6 @@
         paths = Array.from(path);
     }
     
-
-
-
-    
     // on mount
     import { onMount } from 'svelte';
     onMount(() => {
@@ -439,13 +435,11 @@
                     // console.log("heatmap: numGeo");
                     break;
             }
-            
+
             let maxGradient = document.getElementById("max");
             if (maxGradient.innerHTML != max.toLocaleString())
             {
                 maxGradient.innerHTML = max.toLocaleString();
-                let marginLeft = (95-max.toLocaleString().length/2)+"%";
-                maxGradient.style.marginLeft = marginLeft;
             } 
             
             let percent = val/max;
@@ -821,12 +815,11 @@
     
     </div>
 
-    <div class="legend">
+    <div class="legend flex-row">
         <p id="min">0</p>
         <p id="max">100</p>
-        <div class="gradient"></div>
-        
     </div>
+    <div class="gradient"></div>
 
 </main>
 
@@ -834,22 +827,16 @@
 
     .legend {
         margin-top: -5vw;
+        justify-content: space-between;
+        margin: 2rem 0 1rem 0;
+        padding: 0 1rem;
     }
 
     .legend p {
         font-weight: 600;
-        font-size: 2rem;
-
-        margin: 2rem 0 0.5rem 0;
-    }
-
-    #min {
-        margin-left: 3vw;
-    }
-
-    #max {
-        margin-left: 90%;
-        margin-top: -2vw;
+        font-size: 3rem;
+        height: 100%;
+        margin: 0;
     }
 
     .gradient {
@@ -886,12 +873,17 @@
         border-radius: 0.5rem;
 
         margin: 0 0.5rem 0 0.5rem;
+        padding: 1rem;
         z-index: 10;
-
     }
 
     .buttons button:hover {
         cursor: pointer;
+    }
+
+    .buttons button svg {
+        width: 5rem;
+        height: 5rem;
     }
 
     .netEnergy {
@@ -938,27 +930,19 @@
     }
 
     .map-title {
+        font-size: 4rem;
         text-align: center;
         margin-bottom: none;
         margin-bottom: -77px;
     }
 
-    svg {
-        /* margin-left: 20vw; */
+    .map-div svg {
         scale: 0.7;
     }
 
     path {
         fill: white;
     }
-
-    /* [id="21"] {
-        fill: green;
-    } */
-
-    /* path:hover {
-        fill: blue;
-    } */
 
     #tooltip {
         position: fixed;
