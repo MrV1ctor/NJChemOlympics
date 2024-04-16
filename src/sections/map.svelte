@@ -836,6 +836,13 @@
         margin-top: -5vw;
     }
 
+    .legend p {
+        font-weight: 600;
+        font-size: 2rem;
+
+        margin: 2rem 0 0.5rem 0;
+    }
+
     #min {
         margin-left: 3vw;
     }
