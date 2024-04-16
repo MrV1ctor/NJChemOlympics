@@ -449,7 +449,6 @@
                     max = maxNumSol;
                     val = stateInfo.numSol;
                     // console.log("heatmap: numSol");
-                    break;
                 case 2:
                     max = maxNumHydro;
                     val = stateInfo.numHydro;
@@ -469,9 +468,29 @@
             } 
             
             let percent = val/max;
+            switch (selectedStat) {
+                case 0:
+                    fill = interpolateColor("#B7FFBD", "#00A00D", percent);
+                    break;
+                case 1:
+                    var col_min = getComputedStyle(document.documentElement).getPropertyValue('--solar-4');
+                    var col_max = getComputedStyle(document.documentElement).getPropertyValue('--solar-1');
+                    fill = interpolateColor(col_min, col_max, percent);                    break;
+                case 2:
+                    var col_min = getComputedStyle(document.documentElement).getPropertyValue('--hydro-4');
+                    var col_max = getComputedStyle(document.documentElement).getPropertyValue('--hydro-1');
+                    fill = interpolateColor(col_min, col_max, percent);
+                    break;
+                case 3:
+                    var col_min = getComputedStyle(document.documentElement).getPropertyValue('--geo-4');
+                    var col_max = getComputedStyle(document.documentElement).getPropertyValue('--geo-1');
+                    console.log(col_min, col_max)
+                    fill = interpolateColor(col_min, col_max, percent);
+                    break;
+            }
+            
             //make the colors a gradient based off of the percentage. 
             //the color can be represented as an rgb value
-            fill = interpolateColor("#B7FFBD", "#00A00D", percent);
             path.style.fill = fill;
         }
     
