@@ -123,7 +123,7 @@
             }
         };
         var wall2 = new THREE.Mesh(
-          new THREE.BoxGeometry(400, 200, 0.01),
+          new THREE.BoxGeometry(800, 200, 0.01),
           new THREE.ShaderMaterial({
             uniforms: THREE.UniformsUtils.merge([
                 THREE.UniformsLib["fog"],
@@ -213,7 +213,7 @@
           controls.update();
 
             var delta = clock.getDelta();
-            wall2.material.uniforms.iTime.value = clock.getElapsedTime();
+            wall2.material.uniforms.iTime.value = clock.getElapsedTime()/1000000.0;
 
         
         
@@ -429,7 +429,7 @@
 
         // vec4 col = vec4(vec3(.003/(rm.z-0.001)), 1);//haki black lightning
         vec4 col = vec4(vec3(.003/rm.z), 1);
-        vec4 moveAmount_ = vec4(-0.5, 0., -0.5, 0.0);//color change whatnot
+        vec4 moveAmount_ = vec4(0., -0.5, 0., 0.0);//color change whatnot
         col += moveAmount_;
         gl_FragColor = col;
         
