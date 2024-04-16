@@ -467,23 +467,31 @@
                 maxGradient.innerHTML = max.toLocaleString();
             } 
             
+
+            let gradient = document.querySelector(".gradient");
+
             let percent = val/max;
             switch (selectedStat) {
                 case 0:
                     fill = interpolateColor("#B7FFBD", "#00A00D", percent);
+                    gradient.style.backgroundImage = "linear-gradient(to right, #B7FFBD, #00A00D)";
                     break;
                 case 1:
                     var col_min = getComputedStyle(document.documentElement).getPropertyValue('--solar-4');
                     var col_max = getComputedStyle(document.documentElement).getPropertyValue('--solar-1');
-                    fill = interpolateColor(col_min, col_max, percent);                    break;
+                    fill = interpolateColor(col_min, col_max, percent);                    
+                    gradient.style.backgroundImage = "linear-gradient(to right, "+col_min+", "+col_max+")";
+                    break;
                 case 2:
                     var col_min = getComputedStyle(document.documentElement).getPropertyValue('--hydro-4');
                     var col_max = getComputedStyle(document.documentElement).getPropertyValue('--hydro-1');
+                    gradient.style.backgroundImage = "linear-gradient(to right, "+col_min+", "+col_max+")";
                     fill = interpolateColor(col_min, col_max, percent);
                     break;
                 case 3:
                     var col_min = getComputedStyle(document.documentElement).getPropertyValue('--geo-4');
                     var col_max = getComputedStyle(document.documentElement).getPropertyValue('--geo-1');
+                    gradient.style.backgroundImage = "linear-gradient(to right, "+col_min+", "+col_max+")";
                     console.log(col_min, col_max)
                     fill = interpolateColor(col_min, col_max, percent);
                     break;
@@ -886,7 +894,7 @@
 
     .gradient {
         height: 50px;
-        background-image: linear-gradient(to right, #B7FFBD, #00A00D);
+        /* background-image: linear-gradient(to right, #B7FFBD, #00A00D); */
     }
 
     /* .map-div {
