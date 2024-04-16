@@ -17,7 +17,7 @@
         // IMPORTS
         // import './style.css';
         
-        
+        var clock;
         // SETUP
         const scene = new THREE.Scene();
         
@@ -104,14 +104,37 @@
         // wall.position.y = -77;
         // scene.add(wall);
         //make a wall with the same position and dimensions as commented above but with an image texture
-        const wall2 = new THREE.Mesh(
+        
+        // previous material
+        // const wall2 = new THREE.Mesh(
+        //   new THREE.BoxGeometry(400, 200, 0.01),
+        //   new THREE.MeshStandardMaterial({
+        //     // color: 0x5e3002,
+        //     map: new THREE.TextureLoader().load('/img/lightning.png'),
+        //     transparent: true,
+        //   })
+        // );
+        var waterfallUniforms = {
+            iTime: {
+                value: 0
+            },
+            iResolution: {
+                value: new THREE.Vector2(1920, 1080)
+            }
+        };
+        var wall2 = new THREE.Mesh(
           new THREE.BoxGeometry(400, 200, 0.01),
-          new THREE.MeshStandardMaterial({
-            // color: 0x5e3002,
-            map: new THREE.TextureLoader().load('/img/lightning.png'),
-            transparent: true,
+          new THREE.ShaderMaterial({
+            uniforms: THREE.UniformsUtils.merge([
+                THREE.UniformsLib["fog"],
+                waterfallUniforms
+            ]),
+            vertexShader: document.getElementById("vertexShader").textContent,
+            fragmentShader: document.getElementById("fragmentShader").textContent,
+            fog: true
           })
         );
+
         wall2.position.z = -75;
         wall2.position.y = -5;
         scene.add(wall2);
@@ -156,7 +179,8 @@
             let maxDist = 0;
             let minDist = -200;
             //keep
-            wall.position.y = (1-(1+t/(window.innerHeight-document.querySelector("main").scrollHeight-100))) * (maxDist-minDist) + maxDist;
+            // wall.position.y = (1-(1+t/(window.innerHeight-document.querySelector("main").scrollHeight-100))) * (maxDist-minDist) + maxDist;
+            wall.position.y = 500;
 
             
             // console.log(x/dist)
@@ -186,8 +210,10 @@
         
         
         
-          // controls.update();
+          controls.update();
 
+            var delta = clock.getDelta();
+            wall2.material.uniforms.iTime.value = clock.getElapsedTime();
 
         
         
@@ -196,7 +222,10 @@
         
         }
         
+        clock = new THREE.Clock();
         animate();
+
+
         
         window.addEventListener( 'resize', onWindowResize, false );
         
@@ -213,21 +242,203 @@
     
         var acc = document.getElementsByClassName("accordion");
   
-        acc[0].addEventListener("click", function() {
-            this.classList.toggle("active");
-            var text = this.nextElementSibling;
-            if (text.style.maxHeight) {
-            text.style.maxHeight = null;
-            } else {
-            text.style.maxHeight = text.scrollHeight + "px";
-            } 
+        // acc[0].addEventListener("click", function() {
+        //     this.classList.toggle("active");
+        //     var text = this.nextElementSibling;
+        //     if (text.style.maxHeight) {
+        //     text.style.maxHeight = null;
+        //     } else {
+        //     text.style.maxHeight = text.scrollHeight + "px";
+        //     } 
         
-        });
+        // });
 
     });
     
     </script>
-    
+<head>
+<script id="vertexShader" type="x-shader/x-vertex" defer>
+
+    #include <fog_pars_vertex>
+
+    varying vec2 vUv;
+
+    void main() {
+
+        vUv = uv;
+
+        #include <begin_vertex>
+        #include <project_vertex>
+        #include <fog_vertex>
+
+    }
+  </script>
+<!-- credit to illus0r, https://www.shadertoy.com/view/wscyz7 i modified it to work with this shader format and to move things around-->
+  <script id="fragmentShader" type="x-shader/x-fragment" defer>
+
+    uniform float iTime;
+    uniform vec2 iResolution;
+
+    varying vec2 vUv;
+
+
+    #define MAX_STEPS 99
+    #define MAX_DIST 100.
+    #define EPSILON 0.001
+    #define PI 3.1415
+
+    #define EMPTY 0.
+    #define MIRROR 1.
+    #define WHITE_MIRROR 5.
+    #define PUREWHITE 6.
+    #define n getNormal(p)
+
+    #define tChank 4.28125
+
+    mat2 Rot(float a) { float s = sin(a), c = cos(a); return mat2(c, -s, s, c); }
+    float rnd(float x) {return 2.*fract(54321.987139 * sin(987.123452331 * x))-1.;}
+
+    float timeCurve(float t) {
+        t = t * 4. / tChank;
+        float whole = floor(t);
+        float decimal = fract(t);
+        t =  (whole + 1. - pow(1. - decimal, 32.));
+        return t;
+    }
+
+
+    float lightning(vec3 p, vec2 amp){
+        float id = floor(p.x);
+        vec2 shift=     vec2(rnd(id+   iTime*1.0),
+                            rnd(id+   iTime*1.0+10.));
+        vec2 shiftNext = vec2(rnd(id+1.+iTime*1.0),
+                            rnd(id+1.+iTime*1.0+10.));
+        vec2 shift_ = shift, shiftNext_ = shiftNext;
+        shift=pow(shift,vec2(4.)); shiftNext=pow(shiftNext,vec2(4.));
+        shift*=shift_/abs(shift_); shiftNext*=shiftNext_/abs(shiftNext_);
+        shift*=amp; shiftNext*=amp;
+        p.x -= id;
+        p.yz += shift;
+        float dx = 1.,
+            dy = shiftNext.x-shift.x,
+            dz = shiftNext.y-shift.y;
+        p.xy *= Rot(atan(dy, dx));
+        p.zx *= Rot(-atan(dz, length(vec2(dx, dy))));
+        return length(p.yz);
+    }
+
+    vec2 getDist(vec3 p) {
+        p.z-=10.;
+        p.xy*=Rot(1000.*rnd(floor(iTime*4.16)));
+        p.x-=2.;
+        p.xz*=Rot(PI/2.2);
+        p.x *= .2;
+        vec2 amp=vec2(1.5);
+        float obj = lightning(p, amp);
+        return vec2(obj*.6, WHITE_MIRROR);
+    }
+
+    vec3 rayMarch(vec3 ro, vec3 rd) {
+        float d = 0.;
+        float info = EMPTY;
+        float minAngleToObstacle = 1e10;
+        for (int i = 0; i < MAX_STEPS; i++) {
+            vec2 distToClosest = getDist(ro + rd * d);
+            minAngleToObstacle = min(minAngleToObstacle, atan(distToClosest.x, d));
+            d += abs(distToClosest.x);
+            info = distToClosest.y;
+            if(abs(distToClosest.x) < EPSILON || d > MAX_DIST) {
+                break;
+            }
+        }
+        return vec3(d, info, minAngleToObstacle);
+    }
+
+    vec3 getNormal(vec3 p) {
+        vec2 e = vec2(EPSILON, 0.);
+        vec3 n_ = getDist(p).x - vec3(getDist(p - e.xyy).x,
+                                getDist(p - e.yxy).x,
+                                getDist(p - e.yyx).x);
+        return normalize(n_);
+    }
+
+    vec3 getRayDir(vec2 uv, vec3 p, vec3 l, float z) {
+        vec3 f = normalize(l-p),
+            r = normalize(cross(vec3(0,1,0), f)),
+            u = cross(f,r),
+            c = f*z,
+            i = c + uv.x*r + uv.y*u,
+            d = normalize(i);
+        return d;
+    }
+
+    void main()
+    {
+        float d, info, dTotal=0.;
+        vec2 uv = (vUv*500.0-0.01*iResolution.xy)/iResolution.y;
+        
+        vec2 moveAmount = vec2(0.1, -0.2); // Change these values to move by different amounts
+        uv += moveAmount;
+
+
+        gl_FragColor = vec4(uv, 1, 1);
+
+        vec3 ro, rd, color, p, rm;
+        float camDist = -10.;
+        ro = vec3(0,0,camDist);
+        rd = getRayDir(vUv, ro, vec3(0), 1.);
+        color = vec3(0);
+        float colorAmount = 0.;
+
+        for(int reflectionDepth = 0; reflectionDepth < 2; reflectionDepth++) {
+            rm = rayMarch(ro, rd);
+            dTotal += d = rm[0];
+            info = rm[1];
+            p = ro + rd * d;
+            if (d < MAX_DIST) {
+                // color = vec3(1);//textureCube(iChannel0, rd).rgb;
+                if (info == MIRROR) {
+                    rd = reflect(rd, n);
+                    gl_FragColor = vec4(rd, 1);
+                    ro = p + 0.01 * rd;
+                    continue;
+                    // do nothing, propogate color getting to the reflection
+                }
+                else if (info == WHITE_MIRROR) {
+                    vec3 nn = n;
+                    nn.xy*=Rot(1.);
+                    // color = vec3(1) * (dot(nn, vec3(1,1,-1))*.3+.7);
+                    color = nn*.5+.5;
+                }
+                else if (info == PUREWHITE) {
+                    color += vec3(1) * (1. - colorAmount);
+                    colorAmount = 1.;
+                }
+            }
+            else {
+            }
+            break;
+        }
+        color = mix(color, rd*.2, smoothstep(20., 100., dTotal));
+
+        vec3 moveAmounts = vec3(-5.0, -5.0, 0.0); // Change these values to move by different amounts
+        ro += moveAmounts;
+        // gl_FragColor = vec4(, 1);
+        
+        rm = rayMarch(ro, rd);
+
+        // vec4 col = vec4(vec3(.003/(rm.z-0.001)), 1);//haki black lightning
+        vec4 col = vec4(vec3(.003/rm.z), 1);
+        vec4 moveAmount_ = vec4(-0.5, 0., -0.5, 0.0);//color change whatnot
+        col += moveAmount_;
+        gl_FragColor = col;
+        
+    }
+
+
+    </script>
+  </head>
+
 <canvas id="bg"></canvas>
 
 <main>
