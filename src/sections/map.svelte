@@ -445,7 +445,7 @@
             let percent = val/max;
             //make the colors a gradient based off of the percentage. 
             //the color can be represented as an rgb value
-            fill = "rgb("+(255*percent)+",0,"+(255*(1-percent))+")";
+            fill = "rgb("+(255*(1-percent))+","+(255*(percent))+",0)";
             path.style.fill = fill;
         }
     
@@ -841,7 +841,7 @@
 
     .gradient {
         height: 50px;
-        background-image: linear-gradient(to right, #0000ff, #ff0000);
+        background-image: linear-gradient(to right, #ff0000, #00ff00);
     }
 
     /* .map-div {
