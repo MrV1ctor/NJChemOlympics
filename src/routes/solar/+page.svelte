@@ -100,10 +100,12 @@ onMount(() => {
       cyl.position.set(x, y-2, z);
       scene.add(cyl);
 
+      let texture = new THREE.TextureLoader().load('/img/solar/panel1.png');
+
       //add panels
       const geometry2 = new THREE.BoxGeometry(7.5, 0.1, 5);
       const material2 = new THREE.MeshStandardMaterial({ 
-        map: new THREE.TextureLoader().load('/img/solar/panel1.png'),
+        map: texture,
         normalMap: new THREE.TextureLoader().load('/img/solar/NormalMap.png'),
         normalScale: new THREE.Vector2(0.3, 0.3)
       });

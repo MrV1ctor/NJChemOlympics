@@ -39,6 +39,21 @@ a {
     text-decoration: none;
 }
 
+.flex-row {
+  display: flex;
+  flex-direction: row;
+}
+
+.flex-col {
+  display: flex;
+  flex-direction: column;
+}
+
+.flex-center {
+  justify-content: center;
+  align-items: center;
+}
+
 .image-container .source {
     font-size: 2rem;
     text-align: center;
@@ -54,8 +69,7 @@ a {
 }
 
 .accordion {
-    background-color: rgba(0, 0, 0, 0.3);
-    color: #fff;
+    color: #000;
     cursor: pointer;
     padding: 18px;
     width: 100%;
@@ -79,19 +93,19 @@ a {
     font-size: 2rem !important;
   }
 
-  accordion-title {
+  .accordion-title {
+    margin: 1rem 0;
     font-size: 3rem !important;
   }
 
   .active, .accordion:hover {
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: rgba(0, 0, 0, 0);
   }
 
   .accordion-text {
-    color: #fff;
+    color: #000;
     font-size: 1.5rem !important;
     padding: 0 18px;
-    background-color: rgba(0, 0, 0, 0.3);
     max-height: 0;
     overflow: hidden;
     transition: max-height 0.2s ease-out;
@@ -103,5 +117,5 @@ a {
   }
 
   .accordion-text a {
-    color: rgb(255, 255, 0)
+    color: rgb(255, 111, 0)
   }

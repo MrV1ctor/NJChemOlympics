@@ -461,9 +461,6 @@
 </script>
 
 <main>
-
-
-    <p class="buttonText">Click each button to change the map!</p>
     <div class="buttons">
         <button	class="netEnergy" class:selected="{selectedStat === 0}"
         on:click="{() => {selectedStat = 0; title = "Net Energy Generation (MWh)"}}">
@@ -851,11 +848,6 @@
     .gradient {
         height: 50px;
         background-image: linear-gradient(to right, #0000ff, #ff0000);
-    }
-
-
-    main {
-        background-color: rgba(0, 0, 0, 0.7);
     }
 
     /* .map-div {
