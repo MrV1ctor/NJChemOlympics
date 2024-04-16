@@ -456,7 +456,7 @@
         
         <Carousel contentArr={[
             {
-                img: "/img/geo/geoTitle.jpeg", 
+                img: "/img/geo/geoTitle.png", 
                 colorPrefix: "geo",
                 title: "Geothermal Energy",
                 content: "Hydroelectric energy is one of the widely used renewable sources of energy. It harnesses the power of water by converting kinetic energy to electric energy. This energy can then be stored and used on demand, emitting relatively low greenhouse gases compared to fossil fuels. Sadly, constructing these massive hydroelectric dams can have large environmental and social impacts.",

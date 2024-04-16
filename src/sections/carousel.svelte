@@ -24,7 +24,7 @@
 
     function nextPage() {
         if(currentPage + 1 > contentArr.length - 1)
-            return;
+            currentPage = -1;
     
         currentPage++;
         setStyle();
@@ -33,7 +33,7 @@
 
     function prevPage() {
         if(currentPage - 1 < 0)
-            return;
+            currentPage = contentArr.length;
 
         currentPage--;
         setStyle();
