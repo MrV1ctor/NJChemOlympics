@@ -449,6 +449,7 @@
                     max = maxNumSol;
                     val = stateInfo.numSol;
                     // console.log("heatmap: numSol");
+                    break;
                 case 2:
                     max = maxNumHydro;
                     val = stateInfo.numHydro;
