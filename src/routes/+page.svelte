@@ -206,19 +206,22 @@
         // ON FRAME
         function animate() {
         
-          requestAnimationFrame( animate );
+            
+            //wait 5 secs
+            setTimeout(() => {
+                console.log("5 seconds");
+                
+                requestAnimationFrame( animate );
+                
+                controls.update();
+                  var delta = clock.getDelta();
+                  wall2.material.uniforms.iTime.value = clock.getElapsedTime()/250;
+                  
+                renderer.render( scene, camera );
+                  
+                  
+            }, 5000);
         
-        
-        
-          controls.update();
-
-            var delta = clock.getDelta();
-            wall2.material.uniforms.iTime.value = clock.getElapsedTime()/250000;
-
-        
-        
-        
-          renderer.render( scene, camera );
         
         }
         

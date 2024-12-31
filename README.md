@@ -1,3 +1,6 @@
+[Visit the website!](https://chem.quasardilla.com)
+
+
 This is our website for the 2023/2024 NJ Chemistry Olympics
 Event 4 - Website Design - Alternate Energy Sources. 
 
