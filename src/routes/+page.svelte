@@ -226,7 +226,7 @@
         }
         
         clock = new THREE.Clock();
-        animate();
+        // animate();
 
 
         
@@ -510,6 +510,7 @@
         width: 100%;
         z-index: 99;
         position: absolute;
+        background-color: #000;
     }
 
     .landing-container {
